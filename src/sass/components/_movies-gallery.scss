@@ -1,0 +1,26 @@
+.movies-card {
+  margin: 0 auto;
+  width: 274px;
+  height: 100%;
+}
+
+.movies {
+  width: 274px;
+  height: 398px;
+  background-color: palegoldenrod;
+}
+
+.movies_name {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+
+  margin-top: 10px;
+
+  color: #000000;
+}
+.genre {
+  color: var(--accent-color-orange);
+}
