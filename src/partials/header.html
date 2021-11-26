@@ -1,1 +1,39 @@
-<h1>Header section</h1>
+<header class="section-header">
+  <div class="container container-header">
+    <div class="header-top">
+      <a class="header-logo" href="">
+        <svg class="header-logo__svg" width="24px" height="24px">
+          <use href="./images/svg-sprite.svg#icon-film"></use>
+        </svg>
+        <h1 class="header-logo__text">Filmoteka</h1>
+      </a>
+      <nav class="header-nav">
+        <ul class="header-nav__list">
+          <li class="header-nav__item"><a class="header-nav__home active" href="">HOME</a></li>
+          <li class="header-nav__item"><a class="header-nav__library" href="">MY LIBRARY</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="header-contain">
+      <div class="header-contain__wrapper">
+        <label for="header-contain-input" class="header-contain__label">
+          <svg class="header-contain__search" width="12px" height="12px">
+            <use href="./images/svg-sprite.svg#icon-search"></use>
+          </svg>
+        </label>
+
+        <input
+          id="header-contain-input"
+          class="header-contain__input"
+          type="text"
+          name="movie"
+          placeholder="Поиск фильмов"
+        />
+      </div>
+      <p class="header-contain__error">
+        Search result not successful. Enter the correct movie name
+      </p>
+    </div>
+  </div>
+</header>
