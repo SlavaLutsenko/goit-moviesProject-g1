@@ -31,13 +31,13 @@
       }
     }
   }
-  &__rights--icon {
+  &__rights-icon {
     &::before {
       content: '\00a9';
       margin-right: 5px;
     }
   }
-  //   &__heart--icon {
+  //   &__heart-icon {
   //     &::before {
   //           content: "";
   //   background-image: url(../images/customer-reviews/house.svg);
@@ -47,7 +47,7 @@
   //     }
   //   }
 
-  &__rights--border {
+  &__rights-border {
     display: block;
     padding: 0 5px;
     margin-left: 5px;
