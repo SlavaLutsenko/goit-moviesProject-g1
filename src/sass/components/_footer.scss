@@ -1,0 +1,62 @@
+.footer {
+  background-color: #f7f7f7;
+  padding: 28px 0;
+  &__container {
+    @media screen and (min-width: 768px) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.14;
+    color: var(--secondary-text-color);
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+      line-height: 1.19;
+    }
+  }
+  &__rights {
+    display: flex;
+    justify-content: center;
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+    @media screen and (min-width: 768px) {
+      &:not(:last-child) {
+        margin-bottom: 0;
+        margin-right: 5px;
+      }
+    }
+  }
+  &__rights--icon {
+    &::before {
+      content: '\00a9';
+      margin-right: 5px;
+    }
+  }
+  //   &__heart--icon {
+  //     &::before {
+  //           content: "";
+  //   background-image: url(../images/customer-reviews/house.svg);
+  //   fill: #d31342;
+  //   background-repeat: no-repeat;
+  //   background-position: center;
+  //     }
+  //   }
+
+  &__rights--border {
+    display: block;
+    padding: 0 5px;
+    margin-left: 5px;
+    border-right: 2px solid var(--secondary-text-color);
+    border-left: 2px solid var(--secondary-text-color);
+  }
+  &__button {
+    text-decoration: underline;
+    background-color: transparent;
+    border: none;
+  }
+}
