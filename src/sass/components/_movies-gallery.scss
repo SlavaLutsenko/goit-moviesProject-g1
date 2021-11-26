@@ -1,24 +1,26 @@
+.movies-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
 .movies-card {
-  margin: 0 auto;
-  width: 274px;
-  height: 100%;
+  width: 280px;
 }
 
 .movies {
-  width: 274px;
-  height: 398px;
+  display: flex;
+  flex-grow: 1;
+  width: 280px;
+  height: 402px;
   background-color: palegoldenrod;
+  border-radius: 5px;
 }
 
 .movies_name {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
   font-size: 12px;
-  line-height: 16px;
-
+  line-height: calc(16 / 12);
   margin-top: 10px;
-
   color: #000000;
 }
 .genre {
