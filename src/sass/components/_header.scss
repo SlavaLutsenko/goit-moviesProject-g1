@@ -1,0 +1,112 @@
+.container-header {
+  @media screen and (min-width: 768px) {
+    padding: 0 70px;
+  }
+}
+
+.section-header {
+  height: 230px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url('../images/header/mobile-1x.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/header/mobile-2x.png');
+  }
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  &__svg {
+    stroke: var(--logo-svg);
+  }
+  &__text {
+    display: none;
+    font-size: 30px;
+    line-height: 35px;
+    color: var(--white-color);
+    text-transform: none;
+  }
+}
+
+.header-nav {
+  &__list {
+    display: flex;
+    gap: 40px;
+  }
+  &__item {
+    color: var(--white-color);
+    font-size: 12px;
+    line-height: 1.17;
+  }
+  &__home {
+    color: currentColor;
+  }
+  &__library {
+    color: currentColor;
+  }
+}
+
+.header-contain {
+  position: relative;
+  &__wrapper {
+    position: relative;
+  }
+  &__input {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    width: 100%;
+    padding-bottom: 4px;
+    border: none;
+    border-bottom: 0.5px solid var(--white-color);
+    color: var(--white-color);
+    outline: none;
+    margin-bottom: 20px;
+  }
+  &__search {
+    position: absolute;
+    bottom: 6px;
+    right: 0;
+    stroke: var(--white-color);
+  }
+  &__error {
+    font-size: 14px;
+    line-height: 1.14;
+    color: var(--accent-color-red);
+  }
+}
+
+::placeholder {
+  color: var(--white-color);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+}
+
+.active {
+  position: relative;
+  &::after {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 100%;
+    height: 3px;
+    background: var(--accent-color-orange);
+    top: 14px;
+  }
+}
