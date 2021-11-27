@@ -27,7 +27,7 @@
     line-height: calc(16 / 12);
     @media screen and (min-width: 768px) {
       width: 618px;
-       padding: 40px 30px;
+      padding: 40px 30px;
     }
     @media screen and (min-width: 1020px) {
       width: 882px;
@@ -88,7 +88,7 @@
   &__description {
     line-height: calc(20 / 12);
     margin-bottom: 20px;
-    @media screen and (min-width: 768px){
+    @media screen and (min-width: 768px) {
       padding-right: 5px;
     }
   }
@@ -155,4 +155,8 @@
   @media screen and (min-width: 1020px) {
     padding: 0 25px;
   }
+}
+
+.no-scroll {
+  overflow: hidden;
 }
