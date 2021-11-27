@@ -17,6 +17,22 @@
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url('../images/header/mobile-2x.png');
   }
+  @media screen and (min-width: 768px) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/header/tablet-1x.png');
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url('../images/header/tablet-2x.png');
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url('../images/header/desktop-1x.png');
+    @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url('../images/header/desktop-2x.png');
+    }
+  }
 }
 
 .header-top {
@@ -35,10 +51,13 @@
   }
   &__text {
     display: none;
-    font-size: 30px;
-    line-height: 35px;
-    color: var(--white-color);
-    text-transform: none;
+    @media screen and (min-width: 768px) {
+      display: block;
+      font-size: 30px;
+      line-height: 1.17;
+      color: var(--white-color);
+      text-transform: none;
+    }
   }
 }
 
@@ -62,8 +81,17 @@
 
 .header-contain {
   position: relative;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
   &__wrapper {
     position: relative;
+    @media screen and (min-width: 768px) {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
   &__input {
     position: relative;
@@ -77,14 +105,23 @@
     color: var(--white-color);
     outline: none;
     margin-bottom: 20px;
+    @media screen and (min-width: 768px) {
+      width: 340px;
+    }
   }
   &__search {
     position: absolute;
     bottom: 6px;
     right: 0;
     stroke: var(--white-color);
+    @media screen and (min-width: 768px) {
+      bottom: 25px;
+    }
   }
   &__error {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 14px;
     line-height: 1.14;
     color: var(--accent-color-red);
@@ -98,7 +135,7 @@
   line-height: 1.14;
 }
 
-.active {
+.active-page {
   position: relative;
   &::after {
     position: absolute;
