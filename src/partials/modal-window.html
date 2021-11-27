@@ -1,7 +1,4 @@
-<h1>Modal-window section</h1>
-
-<button class="contacts__btn" data-modal-open>TEST</button>
-
+<button class="contacts__btn" data-modal-open>TEST MODAL BTN</button>
 <div class="backdrop is-hidden">
   <!--! todo: заменить на спрайт -->
   <div class="backdrop-container backdrop__container is-hidden" data-modal>
@@ -18,7 +15,8 @@
             <li class="category-list__item">Genre</li>
           </ul>
           <ul class="category-value-list modal-content__category-value-list">
-            <li class="category-value-list__item"><span class="category-value-list__item_bg-color">7.3 </span class=""><span class="category-value-list__item_font-color"> / </span> 1260 </li>
+            <li class="category-value-list__item"><span class="category-value-list__item_bg-color">7.3 </span
+                class=""><span class="category-value-list__item_font-color"> / </span> 1260 </li>
             <li class="category-value-list__item">100.2</li>
             <li class="category-value-list__item">A FISTFUL OF LEAD</li>
             <li class="category-value-list__item">Western</li>
@@ -33,7 +31,7 @@
           bank! As tensions rise, things go from bad to worse as they realise the bags of gold are
           filled with lead... they’ve been double crossed – but by who and how?
         </p>
-        
+
         <div class="btn-wrap content__btn-wrap">
           <button class="btn-wrap__btn active" data-action="">add to<br />Watched</button>
           <button class="btn-wrap__btn " data-action="">add to queue</button>
@@ -42,21 +40,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  // modal-window
-  (() => {
-    const refs = {
-      openModalBtn: document.querySelector('[data-modal-open]'),
-      closeModalBtn: document.querySelector('[data-modal-close]'),
-      modal: document.querySelector('[data-modal]'),
-    };
-
-    refs.openModalBtn.addEventListener('click', toggleModal);
-    refs.closeModalBtn.addEventListener('click', toggleModal);
-
-    function toggleModal() {
-      refs.modal.classList.toggle('is-hidden');
-    }
-  })();
-</script>

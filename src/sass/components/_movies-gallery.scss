@@ -1,3 +1,12 @@
+.movies-container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  @media screen and (max-width: 767px) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
 .movies-gallery {
   display: flex;
   flex-wrap: wrap;
@@ -5,14 +14,19 @@
 }
 
 .movies-card {
-  width: 280px;
+  @media screen and (min-width: 320px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 768px) {
+    width: calc(50% - 15px);
+  }
+  @media screen and (min-width: 1024px) {
+    width: calc(33% - 20px);
+  }
 }
 
 .movies {
-  display: flex;
-  flex-grow: 1;
-  width: 280px;
-  height: 402px;
+  width: 100%;
   background-color: palegoldenrod;
   border-radius: 5px;
 }
