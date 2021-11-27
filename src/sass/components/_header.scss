@@ -187,11 +187,11 @@
     // flex-direction: column;
   }
   &__wrapper {
-    // position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
     @media screen and (min-width: 768px) {
-      justify-content: center;
       gap: 15px;
     }
   }
@@ -206,16 +206,17 @@
     line-height: 1.34;
     text-transform: uppercase;
     border-radius: 5px;
+    border-style: solid;
     @media screen and (min-width: 768px) {
       width: 136px;
     }
-    &-active {
-      background-color: var(--accent-color-orange);
-      border-color: var(--accent-color-orange);
-    }
-    &-inactive {
+    &--inactive {
       background-color: transparent;
       border-color: var(--white-color);
+    }
+    &--active {
+      background-color: var(--accent-color-orange);
+      border-color: var(--accent-color-orange);
     }
   }
 }

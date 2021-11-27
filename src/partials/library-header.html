@@ -9,9 +9,9 @@
       </a>
       <nav class="header-nav">
         <ul class="header-nav__list">
-          <li class="header-nav__item"><a class="header-nav__home" href="">HOME</a></li>
+          <li class="header-nav__item"><a class="header-nav__home" href="./index.html">HOME</a></li>
           <li class="header-nav__item">
-            <a class="header-nav__library active-page" href="">MY LIBRARY</a>
+            <a class="header-nav__library active-page" href="./library.html">MY LIBRARY</a>
           </li>
         </ul>
       </nav>
@@ -20,12 +20,26 @@
     <div class="header-library-contain">
       <ul class="header-library-contain__wrapper">
         <li class="header-library-contain__item">
-          <a class="header-library-contain__link header-library-contain__link-active header-library-contain__link-inactive href=""
-            >Watched</a
+          <button
+            class="
+              header-library-contain__link
+              header-library-contain__link--active
+              header-library-contain__link--inactive
+            "
           >
+            Watched
+          </button>
         </li>
         <li class="header-library-contain__item">
-          <a class="header-library-contain__link header-library-contain__link-inactive header-library-contain__link-active" href="">queue</a>
+          <button
+            class="
+              header-library-contain__link
+              header-library-contain__link--inactive
+              header-library-contain__link--active
+            "
+          >
+            queue
+          </button>
         </li>
       </ul>
     </div>
