@@ -10,7 +10,7 @@
   refs.closeModalBtn.addEventListener('click', toggleModal);
 
   function toggleModal() {
-    console.log('clicked');
+    // console.log('clicked');
     refs.modal.classList.toggle('is-hidden');
     refs.body.classList.toggle('no-scroll');
   }
@@ -22,9 +22,8 @@ API_KEY = '87f9885ae1efa5e26738121aab64796c';
 const refs = {
   gallery: document.querySelector('.movies-gallery'),
   modalwrap: document.querySelector('.wrap'),
-  out: document.querySelector('.test-markup'), //! изменить куда добавлять
 };
-console.log(refs.modalwrap);
+
 //ПОЛУЧИЛА ID
 const onCardClick = e => {
   if (e.target.tagName !== 'IMG') {
@@ -55,7 +54,6 @@ function getMovieData(id) {
 }
 
 // ПО ПОЛУЧИННЫМ ДАННЫМ ДЕЛАЮ РАЗМЕТКУ
-
 const createMarkup = ({
   poster_path,
   original_title,
@@ -65,7 +63,7 @@ const createMarkup = ({
   genres,
   overview,
 }) => {
-  const movie_genres = genres.map(genre => genre.name).join(' '); //TODO: убрать запятые -> поставить пробел
+  const movie_genres = genres.map(genre => genre.name).join(' ');
   const movie_popularity = popularity.toFixed(1);
   const movie_title = original_title.toUpperCase();
   return `
