@@ -10,11 +10,22 @@
   refs.closeModalBtn.addEventListener('click', toggleModal);
 
   function toggleModal() {
-    // console.log('clicked');
     refs.modal.classList.toggle('is-hidden');
     refs.body.classList.toggle('no-scroll');
+    console.log('Button open');
+
+    window.addEventListener('keydown', handleEscPress);
   }
+
+  const handleEscPress = function (e) {
+    // console.log(e.code);
+    if (e.code === 'Escape') {
+      refs.modal.classList.add('is-hidden');
+      window.removeEventListener('keydown', handleEscPress);
+    }
+  };
 })();
+
 
 BASE_URL = 'https://api.themoviedb.org/3';
 API_KEY = '87f9885ae1efa5e26738121aab64796c';
