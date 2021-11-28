@@ -21,7 +21,7 @@ API_KEY = '87f9885ae1efa5e26738121aab64796c';
 
 const refs = {
   gallery: document.querySelector('.movies-gallery'),
-  modalwrap: document.querySelector('.wrap'),
+  modalwrap: document.querySelector('.output-js'),
 };
 
 //ПОЛУЧИЛА ID
@@ -29,7 +29,6 @@ const onCardClick = e => {
   if (e.target.tagName !== 'IMG') {
     return;
   }
-
   const movie = e.target;
   console.log(movie);
   const CARD_ID = Number(movie.dataset.id);
