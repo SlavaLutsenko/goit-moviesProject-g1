@@ -1,15 +1,13 @@
-import ApiService from './api-service';
+import api from './api-service';
 import makeMoviesMarkup from './make-markup';
-const api = new ApiService();
+// const api = new ApiService();
 
-const gall = document.querySelector('.movies-gallery');
 const searchInput = document.querySelector('#header-contain-input');
 // How to handle input event in header Section
 const handleSearch = ev => {
   api.inputText = event.target.value;
-  api.searchMovies().then(res => {
-    makeMoviesMarkup(res);
-    renderMovies(res);
+  api.fetchMovies('search').then(results => {
+    makeMoviesMarkup(results);
   });
   if (event.target.value === '') getMovies();
 };
@@ -21,17 +19,12 @@ searchInput.addEventListener('input', handleSearch);
 const getMovies = () => {
   api
     .fetchMovies()
-    .then(res => {
-      makeMoviesMarkup(res);
-      renderMovies(res);
+    .then(results => {
+      makeMoviesMarkup(results);
     })
     .catch(err => handleError(err));
 };
 
 // Render movies into movies-gallery on the main page
-const renderMovies = res => {
-  const markup = makeMoviesMarkup(res);
-  gall.innerHTML = markup;
-};
 
 getMovies();

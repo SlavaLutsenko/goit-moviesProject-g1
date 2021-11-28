@@ -1,37 +1,60 @@
+import { renderNumberPag } from './pagination.js';
+
 // All fetch logic collected here
-export default class ApiService {
+class ApiService {
   BASE_URL = 'https://api.themoviedb.org/3';
   API_KEY = '87f9885ae1efa5e26738121aab64796c';
   constructor() {
     this.inputText = '';
     this.page = 1;
+    this.totalPages = null;
   }
-
   // Fetch Movies instantly
-  fetchMovies() {
-    return fetch(`${this.BASE_URL}/trending/movie/week?api_key=${this.API_KEY}&page=${this.page}`)
+  fetchMovies(fetchType) {
+    let urlBase = '';
+    switch (fetchType) {
+      case 'fetch':
+        urlBase = `${this.BASE_URL}/trending/movie/week?api_key=${this.API_KEY}&page=${this.page}`;
+        break;
+
+      case 'search':
+        urlBase = `${this.BASE_URL}/search/movie?api_key=${this.API_KEY}&language=en-US&page=${this.page}&include_adult=false&query=${this.inputText}`;
+        break;
+
+      default:
+        urlBase = `${this.BASE_URL}/trending/movie/week?api_key=${this.API_KEY}&page=${this.page}`;
+        break;
+    }
+    return fetch(urlBase)
       .then(data => {
         if (data.ok) {
           return data.json();
         }
         return Promise.reject(new Error('Error'));
       })
-      .then(data => data.results);
+      .then(data => {
+        if (data.total_pages !== this.totalPages) {
+          console.log(data, 'data.totalPages');
+          this.totalPages = data.total_pages;
+        }
+        renderNumberPag(this.page, this.totalPages);
+        return data.results;
+      });
   }
 
   // Search & fetch Movies with header input
-  searchMovies() {
-    return fetch(
-      `${this.BASE_URL}/search/movie?api_key=${this.API_KEY}&language=en-US&page=${this.page}&include_adult=false&query=${this.inputText}`,
-    )
-      .then(data => {
-        if (data.ok) {
-          return data.json();
-        }
-        return Promise.reject(new Error('Error'));
-      })
-      .then(data => data.results);
-  }
+  // searchMovies() {
+  //   return fetch(
+  //     `${this.BASE_URL}/search/movie?api_key=${this.API_KEY}&language=en-US&page=${this.page}&include_adult=false&query=${this.inputText}`,
+  //   )
+  //     .then(data => {
+  //       if (data.ok) {
+  //         return data.json();
+  //       }
+  //       return Promise.reject(new Error('Error'));
+  //     })
+  //     .then(data => data.results);
+  // }
 
   incrementPage() {
     this.page += 1;
@@ -46,3 +69,6 @@ export default class ApiService {
     this.inputText = newInputValue;
   }
 }
+
+const api = new ApiService();
+export default api;
