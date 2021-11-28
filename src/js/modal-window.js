@@ -18,8 +18,8 @@ function onCardClick(e) {
   if (e.target.tagName !== 'IMG') {
     return;
   }
-
   toggleModal();
+
   const movie = e.target;
   const CARD_ID = Number(movie.dataset.id);
   getMovieData(CARD_ID);
@@ -46,6 +46,7 @@ function getMovieData(id) {
 }
 
 // ПО ПОЛУЧИННЫМ ДАННЫМ ДЕЛАЮ РАЗМЕТКУ
+
 function createMarkup({
   poster_path,
   original_title,
@@ -56,6 +57,7 @@ function createMarkup({
   overview,
 }) {
   const movie_genres = genres.map(genre => genre.name).join(' '); //TODO: убрать запятые -> поставить пробел
+
   const movie_popularity = popularity.toFixed(1);
   const movie_title = original_title.toUpperCase();
   return `
