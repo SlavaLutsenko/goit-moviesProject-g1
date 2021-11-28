@@ -4,6 +4,8 @@ import makeMoviesMarkup from './make-markup';
 const gall = document.querySelector('.movies-gallery');
 const searchInput = document.querySelector('#header-contain-input');
 const pagList = document.querySelector('.pagination-list');
+const pagLeft = document.querySelector('.pagination-row-left');
+const pagRight = document.querySelector('.pagination-row-right');
 
 pagList.addEventListener('click', paginFunc);
 function paginFunc(ev) {
@@ -13,6 +15,25 @@ function paginFunc(ev) {
   api.fetchMovies().then(results => {
     makeMoviesMarkup(results);
   });
+  pagLeft.addEventListener('click', onLeftClick);
+  pagRight.addEventListener('click', onRightClick);
+
+  function onLeftClick(ev) {
+    let countL = +pagValue - 1;
+    renderNumberPag(countL, api.totalPages);
+    api.page = countL;
+    api.fetchMovies().then(results => {
+      makeMoviesMarkup(results);
+    });
+  }
+  function onRightClick(ev) {
+    const countR = +pagValue + 1;
+    renderNumberPag(countR, api.totalPages);
+    api.page = countR;
+    api.fetchMovies().then(results => {
+      makeMoviesMarkup(results);
+    });
+  }
 }
 
 window.addEventListener('resize', ev => {
