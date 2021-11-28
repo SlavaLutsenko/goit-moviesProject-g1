@@ -3,25 +3,36 @@ API_KEY = '87f9885ae1efa5e26738121aab64796c';
 
 const refs = {
   gallery: document.querySelector('.movies-gallery'),
-  modalwrap: document.querySelector('.wrap'),
+  modalwrap: document.querySelector('.output-js'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
   out: document.querySelector('.test-markup'), //! изменить куда добавлять
   modal: document.querySelector('[data-modal]'),
   body: document.querySelector('body'),
 };
 
+console.log(refs.modalwrap);
 refs.closeModalBtn.addEventListener('click', toggleModal);
 refs.gallery.addEventListener('click', onCardClick);
 
+// Закрытие модалки по кнопке ESC
+const handleEscPress = function (e) {
+  console.log(e);
+  if (e.code === 'Escape') {
+    refs.modal.classList.add('is-hidden');
+    refs.body.classList.toggle('no-scroll');
+    window.removeEventListener('keydown', handleEscPress);
+  }
+};
+window.addEventListener('keydown', handleEscPress);
 //ПОЛУЧИЛА ID
 function onCardClick(e) {
   if (e.target.tagName !== 'IMG') {
     return;
   }
   toggleModal();
-
   const movie = e.target;
   const CARD_ID = Number(movie.dataset.id);
+
   getMovieData(CARD_ID);
 }
 
@@ -34,6 +45,7 @@ function toggleModal() {
 function getMovieData(id) {
   return fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
     .then(data => {
+      // console.log(data);
       if (data.ok) {
         return data.json();
       }
