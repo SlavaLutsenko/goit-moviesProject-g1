@@ -1,3 +1,5 @@
+const gall = document.querySelector('.movies-gallery');
+
 export default function makeMoviesMarkup(movies) {
   const normalizedMovies = movies.map(({ title, release_date, poster_path, id }) => {
     const releaseYear = new Date(release_date).getFullYear();
@@ -17,5 +19,6 @@ export default function makeMoviesMarkup(movies) {
       </p></div>`;
     })
     .join('');
-  return markup;
+
+  gall.innerHTML = markup;
 }

@@ -1,43 +1,34 @@
-(() => {
-  const refs = {
-    openModalBtn: document.querySelector('[data-modal-open]'),
-    closeModalBtn: document.querySelector('[data-modal-close]'),
-    modal: document.querySelector('[data-modal]'),
-    body: document.querySelector('body'),
-  };
-
-  refs.openModalBtn.addEventListener('click', toggleModal);
-  refs.closeModalBtn.addEventListener('click', toggleModal);
-
-  function toggleModal() {
-    console.log('clicked');
-    refs.modal.classList.toggle('is-hidden');
-    refs.body.classList.toggle('no-scroll');
-  }
-})();
-
 BASE_URL = 'https://api.themoviedb.org/3';
 API_KEY = '87f9885ae1efa5e26738121aab64796c';
 
 const refs = {
   gallery: document.querySelector('.movies-gallery'),
   modalwrap: document.querySelector('.wrap'),
+  closeModalBtn: document.querySelector('[data-modal-close]'),
   out: document.querySelector('.test-markup'), //! изменить куда добавлять
+  modal: document.querySelector('[data-modal]'),
+  body: document.querySelector('body'),
 };
-console.log(refs.modalwrap);
+
+refs.closeModalBtn.addEventListener('click', toggleModal);
+refs.gallery.addEventListener('click', onCardClick);
+
 //ПОЛУЧИЛА ID
-const onCardClick = e => {
+function onCardClick(e) {
   if (e.target.tagName !== 'IMG') {
     return;
   }
 
+  toggleModal();
   const movie = e.target;
-  console.log(movie);
   const CARD_ID = Number(movie.dataset.id);
   getMovieData(CARD_ID);
-};
+}
 
-refs.gallery.addEventListener('click', onCardClick);
+function toggleModal() {
+  refs.modal.classList.toggle('is-hidden');
+  refs.body.classList.toggle('no-scroll');
+}
 
 //ЗАПРОС
 function getMovieData(id) {
@@ -55,8 +46,7 @@ function getMovieData(id) {
 }
 
 // ПО ПОЛУЧИННЫМ ДАННЫМ ДЕЛАЮ РАЗМЕТКУ
-
-const createMarkup = ({
+function createMarkup({
   poster_path,
   original_title,
   vote_average,
@@ -64,7 +54,7 @@ const createMarkup = ({
   popularity,
   genres,
   overview,
-}) => {
+}) {
   const movie_genres = genres.map(genre => genre.name).join(' '); //TODO: убрать запятые -> поставить пробел
   const movie_popularity = popularity.toFixed(1);
   const movie_title = original_title.toUpperCase();
@@ -94,4 +84,4 @@ const createMarkup = ({
           <button class="btn-wrap__btn " data-action="">add to queue</button>
         </div>
     `;
-};
+}
