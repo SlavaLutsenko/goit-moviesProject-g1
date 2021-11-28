@@ -34,7 +34,6 @@ class ApiService {
       })
       .then(data => {
         if (data.total_pages !== this.totalPages) {
-          console.log(data, 'data.totalPages');
           this.totalPages = data.total_pages;
         }
         renderNumberPag(this.page, this.totalPages);
