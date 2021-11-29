@@ -19,6 +19,5 @@ export default function makeMoviesMarkup(movies) {
       </p></div>`;
     })
     .join('');
-
   gall.innerHTML = markup;
 }
