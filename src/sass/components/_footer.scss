@@ -27,7 +27,7 @@
     @media screen and (min-width: 768px) {
       &:not(:last-child) {
         margin-bottom: 0;
-        margin-right: 5px;
+        // margin-right: 5px;
       }
     }
   }
@@ -37,26 +37,23 @@
       margin-right: 5px;
     }
   }
-  //   &__heart-icon {
-  //     &::before {
-  //           content: "";
-  //   background-image: url(../images/customer-reviews/house.svg);
-  //   fill: #d31342;
-  //   background-repeat: no-repeat;
-  //   background-position: center;
-  //     }
-  //   }
 
   &__rights-border {
     display: block;
     padding: 0 5px;
-    margin-left: 5px;
-    border-right: 1px solid var(--secondary-text-color);
-    border-left: 1px solid var(--secondary-text-color);
+
+    // margin-left: 5px;
+    // border-right: 2px solid var(--secondary-text-color);
+    // border-left: 2px solid var(--secondary-text-color);
   }
   &__button {
     text-decoration: underline;
     background-color: transparent;
     border: none;
   }
+}
+.icon-heart {
+  width: 14px;
+  height: 12px;
+  fill: #ff6b08;
 }
