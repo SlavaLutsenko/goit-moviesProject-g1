@@ -4,3 +4,4 @@ import './js/modal-window';
 import './js/render-movies';
 import './js/make-markup';
 import './js/pagination';
+import './js/markupSingleMovie';
