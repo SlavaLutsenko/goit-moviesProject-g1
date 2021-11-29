@@ -7,7 +7,7 @@ export default function createMarkupSingleMovie({
   genres,
   overview,
 }) {
-  const movie_genres = genres.map(genre => genre.name).join(' '); //TODO: убрать запятые -> поставить пробел
+  const movie_genres = genres.map(genre => genre.name).join(' ');
 
   const movie_popularity = popularity.toFixed(1);
   const movie_title = original_title.toUpperCase();
