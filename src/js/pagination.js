@@ -6,36 +6,36 @@ const searchInput = document.querySelector('#header-contain-input');
 const pagList = document.querySelector('.pagination-list');
 const pagLeft = document.querySelector('.pagination-row-left');
 const pagRight = document.querySelector('.pagination-row-right');
+let pagValue = 1;
 
 pagList.addEventListener('click', paginFunc);
 function paginFunc(ev) {
-  const pagValue = ev.target.dataset.pagnumber;
+  pagValue = +ev.target.dataset.pagnumber;
   if (!pagValue) return;
   api.page = pagValue;
   api.fetchMovies().then(results => {
     makeMoviesMarkup(results);
   });
-  pagLeft.addEventListener('click', onLeftClick);
-  pagRight.addEventListener('click', onRightClick);
-
-  function onLeftClick(ev) {
-    let countL = +pagValue - 1;
-    renderNumberPag(countL, api.totalPages);
-    api.page = countL;
-    api.fetchMovies().then(results => {
-      makeMoviesMarkup(results);
-    });
-  }
-  function onRightClick(ev) {
-    const countR = +pagValue + 1;
-    renderNumberPag(countR, api.totalPages);
-    api.page = countR;
-    api.fetchMovies().then(results => {
-      makeMoviesMarkup(results);
-    });
-  }
 }
+pagLeft.addEventListener('click', onLeftClick);
+pagRight.addEventListener('click', onRightClick);
 
+function onLeftClick(ev) {
+  pagValue -= 1;
+  renderNumberPag(pagValue, api.totalPages);
+  api.page = pagValue;
+  api.fetchMovies().then(results => {
+    makeMoviesMarkup(results);
+  });
+}
+function onRightClick(ev) {
+  pagValue += 1;
+  renderNumberPag(pagValue, api.totalPages);
+  api.page = pagValue;
+  api.fetchMovies().then(results => {
+    makeMoviesMarkup(results);
+  });
+}
 window.addEventListener('resize', ev => {
   renderNumberPag(api.page, api.totalPages);
 });
