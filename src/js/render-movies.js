@@ -6,7 +6,7 @@ const searchInput = document.querySelector('#header-contain-input');
 // How to handle input event in header Section
 const handleSearch = ev => {
   api.inputText = event.target.value;
-  api.fetchMovies('search').then(results => {
+  api.fetchMovies().then(results => {
     makeMoviesMarkup(results);
   });
   if (event.target.value === '') getMovies();

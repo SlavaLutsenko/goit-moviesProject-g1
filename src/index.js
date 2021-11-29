@@ -5,3 +5,4 @@ import './js/render-movies';
 import './js/make-markup';
 import './js/pagination';
 import './js/markupSingleMovie';
+import './js/back-to-top';

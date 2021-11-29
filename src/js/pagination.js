@@ -6,13 +6,12 @@ const searchInput = document.querySelector('#header-contain-input');
 const pagList = document.querySelector('.pagination-list');
 const pagLeft = document.querySelector('.pagination-row-left');
 const pagRight = document.querySelector('.pagination-row-right');
-let pagValue = 1;
 
 pagList.addEventListener('click', paginFunc);
 function paginFunc(ev) {
-  pagValue = +ev.target.dataset.pagnumber;
+  const pagValue = +ev.target.dataset.pagnumber;
   if (!pagValue) return;
-  api.page = pagValue;
+  api.changePage(pagValue);
   api.fetchMovies().then(results => {
     makeMoviesMarkup(results);
   });
@@ -21,17 +20,13 @@ pagLeft.addEventListener('click', onLeftClick);
 pagRight.addEventListener('click', onRightClick);
 
 function onLeftClick(ev) {
-  pagValue -= 1;
-  renderNumberPag(pagValue, api.totalPages);
-  api.page = pagValue;
+  api.changePage(api.page - 1);
   api.fetchMovies().then(results => {
     makeMoviesMarkup(results);
   });
 }
 function onRightClick(ev) {
-  pagValue += 1;
-  renderNumberPag(pagValue, api.totalPages);
-  api.page = pagValue;
+  api.changePage(api.page + 1);
   api.fetchMovies().then(results => {
     makeMoviesMarkup(results);
   });
@@ -41,7 +36,17 @@ window.addEventListener('resize', ev => {
 });
 
 function renderNumberPag(currentPage, maxPage) {
+  console.log(1);
   const isMobile = window.innerWidth < 768;
+  let arr = [];
+  if (maxPage <= 5 || (maxPage <= 9 && !isMobile)) {
+    for (let i = 1; i <= maxPage; i++) {
+      arr.push(getItemHtml(i, i === api.page));
+    }
+    pagList.innerHTML = arr.join('');
+    return;
+  }
+
   const leftItemsLength = currentPage - 1;
   const rightItemsLength = maxPage - currentPage;
 
@@ -63,13 +68,12 @@ function renderNumberPag(currentPage, maxPage) {
     leftItems += 5 - rightItemsLength - 1;
   }
 
-  const arr = [];
   if (leftItemsLength > 4 && !isMobile) {
     arr.push(getItemHtml(1));
     arr.push(getItemHtml('...', false, 'prev'));
   }
   for (let i = leftItems; i >= 0; i--) {
-    arr.push(getItemHtml(currentPage - i, !i));
+    arr.push(getItemHtml(currentPage - i, currentPage - i === api.page));
   }
 
   for (let i = 1; i <= rightItems; i++) {
@@ -82,6 +86,19 @@ function renderNumberPag(currentPage, maxPage) {
   }
 
   pagList.innerHTML = arr.join('');
+  const dotsLeft = document.querySelector('[data-pagnumber="prev"]');
+  const dotsRight = document.querySelector('[data-pagnumber="next"]');
+  console.log(dotsLeft);
+  if (dotsLeft) {
+    dotsLeft.addEventListener('click', ev => {
+      renderNumberPag(+currentPage - 5, maxPage);
+    });
+  }
+  if (dotsRight) {
+    dotsRight.addEventListener('click', ev => {
+      renderNumberPag(+currentPage + 5, maxPage);
+    });
+  }
 }
 
 function getItemHtml(value, isActive = false, dataValue) {
