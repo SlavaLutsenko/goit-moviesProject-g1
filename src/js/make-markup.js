@@ -1,6 +1,6 @@
 const gall = document.querySelector('.movies-gallery');
 
-export default function makeMoviesMarkup(movies) {
+export default async function makeMoviesMarkup(movies) {
   const normalizedMovies = movies.map(({ title, release_date, poster_path, id }) => {
     const releaseYear = new Date(release_date).getFullYear();
     // let poster = emptyImg;
@@ -9,15 +9,28 @@ export default function makeMoviesMarkup(movies) {
     // }
     return { title, releaseYear, poster_path, id };
   });
-  const markup = normalizedMovies
-    .map(({ title, releaseYear, poster_path, id }) => {
-      return `<div class="movies-card">
-      <img class="movies" src="https://image.tmdb.org/t/p/w500${poster_path}" data-id="${id}">
+  let time = new Date().getTime();
+  return Promise.all(
+    normalizedMovies.map(({ title, releaseYear, poster_path, id }) => {
+      const imgL = document.createElement('img');
+      imgL.src = `https://image.tmdb.org/t/p/w500${poster_path}`;
+      imgL.classList.add('movies');
+      imgL.dataset.id = id;
+      return new Promise(res => {
+        imgL.onload = () => res({ title, releaseYear, imgL });
+      });
+    }),
+  ).then(arr => {
+    gall.innerHTML = arr
+      .map(
+        ({ title, releaseYear, imgL }) => `<div class="movies-card">
+      ${imgL.outerHTML}
       <p class="movies_name">
         ${title} <br/>
         <span class="genre">Drama | ${releaseYear}</span>
-      </p></div>`;
-    })
-    .join('');
-  gall.innerHTML = markup;
+      </p></div>`,
+      )
+      .join('');
+    console.log(new Date().getTime() - time);
+  });
 }
