@@ -1,5 +1,6 @@
 .backdrop-container {
   position: fixed;
+  backdrop-filter: blur(5px);
   top: 0;
   left: 0;
   bottom: 0;
@@ -37,9 +38,9 @@
   }
 }
 .info-wrap {
-  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 .modal-content {
   &__close-btn {
@@ -56,19 +57,18 @@
   &__img {
     width: 240px;
     height: 357px;
-    overflow: hidden;
+    object-fit: cover;
     border-radius: 5px;
     margin: 0 auto 30px;
+   
     @media screen and (min-width: 768px) {
       width: 264px;
       height: 374px;
-      // overflow: hidden;
       margin: 0 30px 0 0;
     }
     @media screen and (min-width: 1020px) {
       width: 396px;
       height: 478px;
-      overflow: hidden;
       margin-right: 30px;
     }
   }
@@ -102,13 +102,14 @@
   }
 }
 .category-list {
+  width: 35%;
   &__item {
     margin-bottom: 10px;
     color: #8c8c8c;
   }
 }
-
 .category-value-list {
+  width: 65%;
   &__item {
     &_bg-color {
       display: inline-block;
@@ -122,11 +123,7 @@
     }
     margin-bottom: 10px;
   }
-  @media screen and (min-width: 1020px) {
-    padding-right: 135px;
-  }
 }
-//! todo onclick / focus
 .btn-wrap {
   display: flex;
   justify-content: space-between;
@@ -142,6 +139,10 @@
     box-sizing: content-box;
     border-radius: 5px;
     border: 1px solid #000;
+    &:hover,
+    &:focus{
+      background-color: rgb(232, 228, 228);
+    }
     @media screen and (min-width: 768px) {
       width: 125px;
       &:not(:last-child) {
@@ -154,20 +155,28 @@
   background-color: var(--accent-color-orange);
   border-color: var(--accent-color-orange);
   color: var(--white-color);
+  &:hover,
+  &:focus{
+    background-color: #f4863d;;
+  }
 }
 .wrap {
   @media screen and (min-width: 768px){
     width:50%;
   }
 }
-
 .no-scroll {
   overflow: hidden;
 }
 .output-constainer{
-  @media screen and (min-width: 768px){
-    display: flex;
+  padding-right: 5px;
+  height: 450px;
+  overflow: auto;
 
+  @media screen and (min-width: 768px){
+    height: 100%;
+    padding-right: 0;
+    display: flex;
   }
 }
 
