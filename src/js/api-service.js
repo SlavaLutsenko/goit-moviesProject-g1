@@ -42,6 +42,16 @@ class ApiService {
       return Promise.reject(new Error('Error'));
     });
   }
+  /* Kate start */
+  getGenres() {
+    return fetch(`${this.BASE_URL}/genre/movie/list?api_key=${this.API_KEY}`).then(data => {
+      if (data.ok) {
+        return data.json();
+      }
+      return Promise.reject(new Error('Error'));
+    });
+  }
+  /* Kate end */
 
   // Search & fetch Movies with header input
   // searchMovies() {

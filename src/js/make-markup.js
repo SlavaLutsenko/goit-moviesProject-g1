@@ -1,7 +1,18 @@
+import api from './api-service';
 const gall = document.querySelector('.movies-gallery');
 
 export default async function makeMoviesMarkup(movies) {
-  const normalizedMovies = movies.map(({ title, release_date, poster_path, id }) => {
+  // const dataFmMGEN = movies.map(el => el.genre_ids.map(el => el).join(' '));
+  // console.log(dataFmMGEN);
+  // const arrGenres = [];
+  // console.log('arrGenres:', arrGenres);
+  // const genres = api.getGenres().then(data => {
+  //   data.genres.map(el => arrGenres.push(el));
+  //   return data.genres;
+  // });
+  //массив объектов
+
+  const normalizedMovies = movies.map(({ title, release_date, poster_path, id, genre_ids }) => {
     const releaseYear = new Date(release_date).getFullYear();
     // let poster = emptyImg;
     // if (poster_path) {
@@ -9,6 +20,7 @@ export default async function makeMoviesMarkup(movies) {
     // }
     return { title, releaseYear, poster_path, id };
   });
+  console.log(normalizedMovies);
   return Promise.all(
     normalizedMovies.map(({ title, releaseYear, poster_path, id }) => {
       const imgL = document.createElement('img');
