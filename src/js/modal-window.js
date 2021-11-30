@@ -18,7 +18,6 @@ function toggleModal() {
 // Закрытие модалки по кнопке ESC
 
 const handleEscPress = function (e) {
-  // console.log(e.code);
   if (e.code === 'Escape') {
     refs.modal.classList.add('is-hidden');
     // window.removeEventListener('keydown', handleEscPress); //!удаление слушателя
