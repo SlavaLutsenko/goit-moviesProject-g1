@@ -17,4 +17,4 @@ document.getElementById("year").innerHTML=(new Date).getFullYear();
 },{}],"I9BA":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/localStorage"),require("./js/render-library-markup"),require("./js/spinner"),require("./js/footer");
 },{"./sass/main.scss":"clu1","./js/localStorage":"nnQC","./js/render-library-markup":"vaOt","./js/spinner":"Sc1o","./js/footer":"b5Ik"}]},{},["I9BA"], null)
-//# sourceMappingURL=/goit-moviesProject-g1/library.acd3aa9a.js.map
+//# sourceMappingURL=/goit-moviesProject-g1/library.ec04a5a7.js.map
