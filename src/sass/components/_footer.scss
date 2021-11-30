@@ -21,6 +21,7 @@
   &__rights {
     display: flex;
     justify-content: center;
+    align-items: center;
     &:not(:last-child) {
       margin-bottom: 10px;
     }
