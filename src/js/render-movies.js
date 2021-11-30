@@ -1,6 +1,6 @@
 import api from './api-service';
 import makeMoviesMarkup from './make-markup';
-// const api = new ApiService();
+import renderMarkupWithGenres from './render-markup-with-genres';
 import Notiflix from 'notiflix';
 
 const searchInput = document.querySelector('#header-contain-input');
@@ -11,10 +11,12 @@ const handleSearch = ev => {
     if (results.length === 0) {
       Notiflix.Notify.failure('Search result not successful. Enter the correct movie name');
     }
-    makeMoviesMarkup(results);
+    makeMoviesMarkup(results).then(() => {
+      renderMarkupWithGenres(results);
+    });
   });
   if (event.target.value === '') {
-    Notiflix.Notify.info('Just enter name movie 😉');
+    Notiflix.Notify.info('Just enter movie name 😉');
   }
   getMovies();
 };
@@ -27,11 +29,12 @@ const getMovies = () => {
   api
     .fetchMovies()
     .then(results => {
-      makeMoviesMarkup(results);
+      makeMoviesMarkup(results).then(() => {
+        renderMarkupWithGenres(results);
+      });
     })
     .catch(err => handleError(err));
 };
 
 // Render movies into movies-gallery on the main page
-
 getMovies();
