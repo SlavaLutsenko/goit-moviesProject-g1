@@ -41,4 +41,3 @@ var sttFunc = function sttFunc() {
 };
 
 document.addEventListener('DOMContentLoaded', sttFunc);
-export default goTopBtn;
