@@ -61,11 +61,28 @@ function onCardClick(e) {
     const markup = createMarkupSingleMovie(data);
     refs.modalwrap.innerHTML = markup;
 
+    const btnTreiler = document.querySelector('.modal-content__trailer-btn');
+
+    function openTpailerFunc(ev) {
+      console.log('open');
+      const arrTrail = api.fetchTreiler(CARD_ID).then(res => {
+        const resultsV = res.videos.results;
+        const oneArr = resultsV.find(el => el.site === 'YouTube');
+        const keyV = oneArr.key;
+        const markupV = `<div class="frame-cont"><iframe class="iframe-tr" cellspacing="0" src="https://www.youtube.com/embed/${keyV}" 
+        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+        encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
+        refs.backdrop.innerHTML = markupV;
+        return;
+      });
+    }
+
     // Слушатели событий для кнопок в модалке
     const btnQueue = document.querySelector('[data-action="queue"]');
     const btnWatched = document.querySelector('[data-action="watched"]');
     btnWatched.addEventListener('click', handleWatchLibrary);
     btnQueue.addEventListener('click', handleQueueLibrary);
+    btnTreiler.addEventListener('click', openTpailerFunc);
 
     // Отправить фильмы "Очередь" в localStorage
   });
