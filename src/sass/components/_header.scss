@@ -91,7 +91,25 @@
     }
   }
 }
-
+.headertheme-cont {
+  display: flex;
+  gap: 20px;
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 16px;
+    width: 55px;
+    color: var(--white-color);
+    font-size: 9px;
+    line-height: 1.17;
+    background-color: transparent;
+    border-color: var(--accent-color-orange);
+    border-style: solid;
+    border-radius: 8px;
+    border-width: 1px;
+  }
+}
 .header-nav {
   &__list {
     display: flex;
@@ -217,6 +235,7 @@
     &--active {
       background-color: var(--accent-color-orange);
       border-color: var(--accent-color-orange);
+      box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
     }
   }
 }
