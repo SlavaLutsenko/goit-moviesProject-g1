@@ -9,7 +9,6 @@ export default async function makeMoviesMarkup(movies) {
     // }
     return { title, releaseYear, poster_path, id };
   });
-  let time = new Date().getTime();
   return Promise.all(
     normalizedMovies.map(({ title, releaseYear, poster_path, id }) => {
       const imgL = document.createElement('img');
@@ -31,6 +30,5 @@ export default async function makeMoviesMarkup(movies) {
       </p></div>`,
       )
       .join('');
-    console.log(new Date().getTime() - time);
   });
 }
