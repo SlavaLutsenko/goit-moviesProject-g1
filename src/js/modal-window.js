@@ -7,7 +7,7 @@ const refs = {
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modal: document.querySelector('[data-modal]'),
   body: document.querySelector('body'),
-  backdrop: document.querySelector('.backdrop'),
+  backdrop: document.querySelector('.backdrop-container'),
 };
 
 function toggleModal() {
@@ -16,8 +16,9 @@ function toggleModal() {
 }
 
 // Закрытие модалки по кнопке ESC
+
 const handleEscPress = function (e) {
-  console.log(e.code);
+  // console.log(e.code);
   if (e.code === 'Escape') {
     refs.modal.classList.add('is-hidden');
     // window.removeEventListener('keydown', handleEscPress); //!удаление слушателя
@@ -70,11 +71,18 @@ function onCardClick(e) {
   });
 }
 
-refs.closeModalBtn.addEventListener('click', toggleModal);
+refs.closeModalBtn.addEventListener('click', function () {
+  if (this.hasAttribute('data-modal-close')) {
+    toggleModal();
+  }
+});
+
 refs.gallery.addEventListener('click', onCardClick);
-// refs.backdrop.addEventListener('click', e => {
-//   if (e.target.className.includes('backdrop')) {
-//     toggleModal();
-//   }
-// });
+
+refs.backdrop.addEventListener('click', e => {
+  if (e.target.matches('.backdrop-container')) {
+    toggleModal();
+  }
+});
+
 window.addEventListener('keydown', handleEscPress);

@@ -9,6 +9,20 @@
 }
 .pagination-item {
   list-style: none;
+  // &:nth-child(1),
+  // &:nth-child(2),
+  // &:nth-child(8),
+  // &:nth-child(9) {
+  //   display: none;
+  // }
+  // @media screen and (min-width: 768px) {
+  //   &:nth-child(1),
+  //   &:nth-child(2),
+  //   &:nth-child(8),
+  //   &:nth-child(9) {
+  //     display: block;
+  //   }
+  // }
 }
 .pagination-btn {
   width: 35px;
@@ -43,14 +57,4 @@
 .array-right {
   stroke: var(--primary-text-color);
   fill: transparent;
-}
-
-.pagination-row[disabled] {
-  background-color: var(--white-color);
-  color: var(--white-color);
-  cursor: not-allowed;
-  & svg {
-    stroke: #a09c9caf;
-    fill: transparent;
-  }
 }
