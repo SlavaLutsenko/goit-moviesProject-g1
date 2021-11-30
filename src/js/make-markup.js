@@ -2,14 +2,12 @@ import api from './api-service';
 const gall = document.querySelector('.movies-gallery');
 
 export default async function makeMoviesMarkup(movies) {
-  // const dataFmMGEN = movies.map(el => el.genre_ids.map(el => el).join(' '));
-  // console.log(dataFmMGEN);
-  // const arrGenres = [];
+  // console.log(arrMovGenFmData);
+  // if (arrGenres.id === genre_ids )
+
+  // .then(data => )
+
   // console.log('arrGenres:', arrGenres);
-  // const genres = api.getGenres().then(data => {
-  //   data.genres.map(el => arrGenres.push(el));
-  //   return data.genres;
-  // });
   //массив объектов
 
   const normalizedMovies = movies.map(({ title, release_date, poster_path, id, genre_ids }) => {
@@ -18,9 +16,8 @@ export default async function makeMoviesMarkup(movies) {
     // if (poster_path) {
     //   poster = `https://image.tmdb.org/t/p/w500${poster_path}`;
     // }
-    return { title, releaseYear, poster_path, id };
+    return { title, releaseYear, poster_path, id, genre_ids };
   });
-  console.log(normalizedMovies);
   return Promise.all(
     normalizedMovies.map(({ title, releaseYear, poster_path, id }) => {
       const imgL = document.createElement('img');
@@ -38,7 +35,7 @@ export default async function makeMoviesMarkup(movies) {
       ${imgL.outerHTML}
       <p class="movies_name">
         ${title} <br/>
-        <span class="genre">Drama | ${releaseYear}</span>
+        <span class="genre"><span class="dirgenre">Drama</span> | ${releaseYear}</span>
       </p></div>`,
       )
       .join('');

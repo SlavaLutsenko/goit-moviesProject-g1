@@ -1,5 +1,6 @@
 import api from './api-service';
 import makeMoviesMarkup from './make-markup';
+import renderMarkupWithGenres from './render-markup-with-genres';
 
 const gall = document.querySelector('.movies-gallery');
 const searchInput = document.querySelector('#header-contain-input');
@@ -13,7 +14,9 @@ function paginFunc(ev) {
   if (!pagValue) return;
   api.changePage(pagValue);
   api.fetchMovies().then(results => {
-    makeMoviesMarkup(results);
+    makeMoviesMarkup(results).then(() => {
+      renderMarkupWithGenres(results);
+    });
   });
 }
 pagLeft.addEventListener('click', onLeftClick);
@@ -22,13 +25,17 @@ pagRight.addEventListener('click', onRightClick);
 function onLeftClick(ev) {
   api.changePage(api.page - 1);
   api.fetchMovies().then(results => {
-    makeMoviesMarkup(results);
+    makeMoviesMarkup(results).then(() => {
+      renderMarkupWithGenres(results);
+    });
   });
 }
 function onRightClick(ev) {
   api.changePage(api.page + 1);
   api.fetchMovies().then(results => {
-    makeMoviesMarkup(results);
+    makeMoviesMarkup(results).then(() => {
+      renderMarkupWithGenres(results);
+    });
   });
 }
 window.addEventListener('resize', ev => {
