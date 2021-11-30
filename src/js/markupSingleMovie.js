@@ -8,7 +8,6 @@ export default function createMarkupSingleMovie({
   overview,
 }) {
   const movie_genres = genres.map(genre => genre.name).join(' ');
-
   const movie_popularity = popularity.toFixed(1);
   const movie_title = original_title.toUpperCase();
   return `
@@ -33,8 +32,8 @@ export default function createMarkupSingleMovie({
       <h2 class="modal-content__subtitle">About</h2>
       <p class="modal-content__description">${overview}</p>
       <div class="btn-wrap content__btn-wrap">
-          <button class="btn-wrap__btn active" data-action="">add to Watched</button>
-          <button class="btn-wrap__btn " data-action="">add to queue</button>
+          <button class="btn-wrap__btn active" data-action="watched">add to Watched</button>
+          <button class="btn-wrap__btn " data-action="queue">add to queue</button>
         </div>
     `;
 }

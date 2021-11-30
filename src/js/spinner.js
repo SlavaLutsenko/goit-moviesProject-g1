@@ -1,6 +1,4 @@
-window.addEventListener('load', event => {
-  console.log(event);
-  let LoadAnim = document.querySelector('.loading');
-  console.log(LoadAnim);
-  LoadAnim.classList.remove('loading');
-});
+// window.addEventListener('load', event => {
+//   let LoadAnim = document.querySelector('.loading');
+//   LoadAnim.classList.remove('loading');
+// });

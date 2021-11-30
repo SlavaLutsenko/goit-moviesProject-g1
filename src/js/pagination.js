@@ -36,7 +36,6 @@ window.addEventListener('resize', ev => {
 });
 
 function renderNumberPag(currentPage, maxPage) {
-  console.log(1);
   const isMobile = window.innerWidth < 768;
   let arr = [];
   if (maxPage <= 5 || (maxPage <= 9 && !isMobile)) {
@@ -88,7 +87,6 @@ function renderNumberPag(currentPage, maxPage) {
   pagList.innerHTML = arr.join('');
   const dotsLeft = document.querySelector('[data-pagnumber="prev"]');
   const dotsRight = document.querySelector('[data-pagnumber="next"]');
-  console.log(dotsLeft);
   if (dotsLeft) {
     dotsLeft.addEventListener('click', ev => {
       renderNumberPag(+currentPage - 5, maxPage);
