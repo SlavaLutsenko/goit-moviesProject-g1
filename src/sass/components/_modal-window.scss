@@ -25,8 +25,8 @@
     padding: 48px 20px 40px;
     font-size: 12px;
     line-height: calc(16 / 12);
-    @media screen and (min-width: 414px){
-      width: 320px;  
+    @media screen and (min-width: 414px) {
+      width: 320px;
     }
     @media screen and (min-width: 768px) {
       width: 618px;
@@ -51,8 +51,8 @@
     border: none;
     background-color: transparent;
   }
-  &__icon-close{
-    stroke: #000; 
+  &__icon-close {
+    stroke: #000;
   }
   &__img {
     width: 240px;
@@ -60,7 +60,7 @@
     object-fit: cover;
     border-radius: 5px;
     margin: 0 auto 30px;
-   
+
     @media screen and (min-width: 768px) {
       width: 264px;
       height: 374px;
@@ -101,7 +101,7 @@
     display: flex;
   }
   //кнопка для просмотра трейлера
-  &__trailer-btn{
+  &__trailer-btn {
     height: 44px;
     width: 95%;
     margin-bottom: 30px;
@@ -111,12 +111,12 @@
     border-color: var(--accent-color-orange);
     color: var(--white-color);
     &:hover,
-    &:focus{
-      background-color: #f4863d;;
+    &:focus {
+      background-color: #f4863d;
     }
-  @media screen and (min-width: 768px){
-    width: 150px;
-  }
+    @media screen and (min-width: 768px) {
+      width: 150px;
+    }
   }
 }
 .category-list {
@@ -158,7 +158,7 @@
     border-radius: 5px;
     border: 1px solid #000;
     &:hover,
-    &:focus{
+    &:focus {
       background-color: rgb(232, 228, 228);
     }
     @media screen and (min-width: 768px) {
@@ -174,30 +174,47 @@
   border-color: var(--accent-color-orange);
   color: var(--white-color);
   &:hover,
-  &:focus{
-    background-color: #f4863d;;
+  &:focus {
+    background-color: #f4863d;
   }
 }
 .wrap {
-  @media screen and (min-width: 768px){
-    width:50%;
+  @media screen and (min-width: 768px) {
+    width: 50%;
   }
 }
 .no-scroll {
   overflow: hidden;
 }
-.output-constainer{
+.output-constainer {
   height: 450px;
   overflow: auto;
 
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     height: 100%;
     padding-right: 0;
     display: flex;
   }
 }
 
-
- 
-
-
+.iframe-tr {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.frame-cont {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  object-fit: contain;
+  width: 98%;
+  height: 30%;
+  @media screen and (min-width: 768px) {
+    height: 40%;
+  }
+  @media screen and (min-width: 1020px) {
+    height: 55%;
+  }
+}
