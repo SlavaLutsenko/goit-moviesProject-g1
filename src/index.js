@@ -5,6 +5,6 @@ import './js/render-movies';
 import './js/make-markup';
 import './js/pagination';
 import './js/markupSingleMovie';
-// import './js/spinner';
+import './js/spinner';
 import './js/back-to-top';
 import './js/footer';

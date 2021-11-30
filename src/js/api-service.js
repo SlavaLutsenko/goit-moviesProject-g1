@@ -14,7 +14,9 @@ class ApiService {
   // Fetch Movies instantly
   fetchMovies() {
     let urlBase = this.inputText
-      ? `${this.BASE_URL}/search/movie?api_key=${this.API_KEY}&language=en-US&page=${this.page}&include_adult=false&query=${this.inputText}`
+      ? `${this.BASE_URL}/search/movie?api_key=${this.API_KEY}&language=en-US&page=${
+          this.page
+        }&include_adult=false&query=${encodeURIComponent(this.inputText)}`
       : `${this.BASE_URL}/trending/movie/week?api_key=${this.API_KEY}&page=${this.page}`;
 
     return fetch(urlBase)
