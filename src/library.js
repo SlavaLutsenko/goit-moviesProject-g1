@@ -6,3 +6,4 @@ import './js/spinner';
 // import './js/modal-window';
 // import './js/render-movies';
 // import './js/make-markup';
+import './js/footer';
