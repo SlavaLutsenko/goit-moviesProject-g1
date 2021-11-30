@@ -29,6 +29,7 @@ export default function createMarkupSingleMovie({
           <li class="category-value-list__item">${movie_genres}</li>
         </ul>
       </div>
+      <button class="modal-content__trailer-btn">watch the trailer</button>
       <h2 class="modal-content__subtitle">About</h2>
       <p class="modal-content__description">${overview}</p>
       <div class="btn-wrap content__btn-wrap">

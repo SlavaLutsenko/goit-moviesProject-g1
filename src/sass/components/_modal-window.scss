@@ -100,6 +100,24 @@
   @media screen and (min-width: 768px) {
     display: flex;
   }
+  //кнопка для просмотра трейлера
+  &__trailer-btn{
+    height: 44px;
+    width: 95%;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    background-color: var(--accent-color-orange);
+    border-color: var(--accent-color-orange);
+    color: var(--white-color);
+    &:hover,
+    &:focus{
+      background-color: #f4863d;;
+    }
+  @media screen and (min-width: 768px){
+    width: 150px;
+  }
+  }
 }
 .category-list {
   width: 35%;
@@ -169,7 +187,6 @@
   overflow: hidden;
 }
 .output-constainer{
-  padding-right: 5px;
   height: 450px;
   overflow: auto;
 
