@@ -1,6 +1,8 @@
 import createMarkupSingleMovie from './markupSingleMovie';
 import api from './api-service';
 import makeMoviesMarkup from './make-markup';
+import onCardClick from './onCardClick';
+
 const refs = {
   gallery: document.querySelector('.movies-gallery'),
   modalwrap: document.querySelector('.output-js'),
@@ -25,77 +27,25 @@ const handleEscPress = function (e) {
   }
 };
 
-// достать фильмы "В очереди" из LocalStorage
-const getMoviesFromQueue = () => JSON.parse(localStorage.getItem('QUEUE')) || [];
-// достать фильмы "Просмотренные" из LocalStorage
-const getMoviesFromWatched = () => JSON.parse(localStorage.getItem('WATCHED')) || [];
-
-function onCardClick(e) {
-  if (e.target.tagName !== 'IMG') {
-    return;
-  }
-  toggleModal();
-
-  const movie = e.target;
-  const CARD_ID = Number(movie.dataset.id);
-
-  api.getMovieData(CARD_ID).then(data => {
-    function handleWatchLibrary() {
-      const watched = getMoviesFromWatched();
-      const isIncluded = watched.find(el => el.id === data.id);
-      if (!isIncluded) {
-        localStorage.setItem('WATCHED', JSON.stringify([...watched, data]));
-        btnWatched.innerHTML = 'REMOVE FROM WATCHED';
-      }
-    }
-
-    function handleQueueLibrary() {
-      const queue = getMoviesFromQueue();
-      const isIncluded = queue.find(el => el.id === data.id);
-      if (!isIncluded) {
-        localStorage.setItem('QUEUE', JSON.stringify([...queue, data]));
-        btnQueue.innerHTML = 'REMOVE FROM QUEUE';
-      }
-    }
-
-    // Создать разметку в модалке для одного фильма
-    const markup = createMarkupSingleMovie(data);
-    refs.modalwrap.innerHTML = markup;
-
-    const btnTreiler = document.querySelector('.modal-content__trailer-btn');
-
-    function openTpailerFunc(ev) {
-      console.log('open');
-      const arrTrail = api.fetchTreiler(CARD_ID).then(res => {
-        const resultsV = res.videos.results;
-        const oneArr = resultsV.find(el => el.site === 'YouTube');
-        const keyV = oneArr.key;
-        const markupV = `<div class="frame-cont"><iframe class="iframe-tr" cellspacing="0" src="https://www.youtube.com/embed/${keyV}" 
-        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
-        encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
-        refs.backdrop.innerHTML = markupV;
-        return;
-      });
-    }
-
-    // Слушатели событий для кнопок в модалке
-    const btnQueue = document.querySelector('[data-action="queue"]');
-    const btnWatched = document.querySelector('[data-action="watched"]');
-    btnWatched.addEventListener('click', handleWatchLibrary);
-    btnQueue.addEventListener('click', handleQueueLibrary);
-    btnTreiler.addEventListener('click', openTpailerFunc);
-
-    // Отправить фильмы "Очередь" в localStorage
-  });
-}
-
 refs.closeModalBtn.addEventListener('click', function () {
   if (this.hasAttribute('data-modal-close')) {
     toggleModal();
   }
 });
 
-refs.gallery.addEventListener('click', onCardClick);
+refs.gallery.addEventListener('click', async e => {
+  if (e.target.tagName !== 'IMG') {
+    return;
+  }
+  const movie = e.target;
+  const CARD_ID = Number(movie.dataset.id);
+  const data = await api.getMovieData(CARD_ID).then(data => {
+    console.log(data);
+    return data;
+  });
+  console.log(data);
+  onCardClick(e, data);
+});
 
 refs.backdrop.addEventListener('click', e => {
   if (e.target.matches('.backdrop-container')) {

@@ -1,5 +1,5 @@
 export default function renderLibraryMarkup(movArr) {
-  const libraryGall = document.querySelector('.library-gallery');
+  const libraryGall = document.querySelector('.movies-gallery');
   const normalizedMovies = movArr.map(({ title, release_date, poster_path, id }) => {
     const releaseYear = new Date(release_date).getFullYear();
     // let poster = emptyImg;
