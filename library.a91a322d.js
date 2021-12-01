@@ -35,4 +35,4 @@ document.getElementById("year").innerHTML=(new Date).getFullYear();
 },{}],"I9BA":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/localStorage"),require("./js/render-library-markup"),require("./js/spinner"),require("./js/footer");
 },{"./sass/main.scss":"clu1","./js/localStorage":"nnQC","./js/render-library-markup":"vaOt","./js/spinner":"Sc1o","./js/footer":"b5Ik"}]},{},["I9BA"], null)
-//# sourceMappingURL=/goit-moviesProject-g1/library.93f51c7b.js.map
+//# sourceMappingURL=/goit-moviesProject-g1/library.a91a322d.js.map
