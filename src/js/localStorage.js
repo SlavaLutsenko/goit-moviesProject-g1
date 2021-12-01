@@ -23,7 +23,6 @@ function toggleModal() {
 
 // Закрытие модалки по кнопке ESC
 const handleEscPress = function (e) {
-  console.log(e.code);
   if (e.code === 'Escape') {
     refs.modal.classList.add('is-hidden');
     // window.removeEventListener('keydown', handleEscPress); //!удаление слушателя
@@ -61,7 +60,6 @@ function renderWatchedMovies() {
     Notiflix.Notify.info(`Hooray! You have ${watchedArr.length} movies in collection.`);
     renderLibraryMarkup(watchedArr);
   }
-  // console.log(watchedArr);
 }
 
 // Достаем инфу из LocalStorage по фильмам "QUEUE"

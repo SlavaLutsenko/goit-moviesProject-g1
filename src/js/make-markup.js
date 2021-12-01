@@ -29,8 +29,8 @@ export default async function makeMoviesMarkup(movies) {
         ({ title, releaseYear, imgL }) => `<div class="movies-card">
       ${imgL.outerHTML}
       <p class="movies_name">
-        ${title} <br/>
-        <span class="genre"><span class="dirgenre">Drama</span> | ${releaseYear}</span>
+        ${title}
+        <span class="genre"><span class="dirgenre"></span> | ${releaseYear}</span>
       </p></div>`,
       )
       .join('');

@@ -26,6 +26,7 @@
     "sass": "^1.44.0"
   },
   "dependencies": {
+    "basiclightbox": "^5.0.4",
     "node-sass": "^6.0.1",
     "notiflix": "^3.2.2",
     "paginationjs": "^2.1.5"

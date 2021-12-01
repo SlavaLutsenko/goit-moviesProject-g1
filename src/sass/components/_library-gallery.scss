@@ -4,3 +4,25 @@
   gap: 30px;
   margin-bottom: 50px;
 }
+.genre{
+  display: block;
+  text-transform: none;
+  margin-top: 5px;
+}
+.movies_name{
+  text-transform: uppercase;
+  display: block;
+}
+.rating{
+  width: 36px;
+  padding: 2px ;
+  text-align: center;
+  margin: 5px 0 0 10px;
+  border-radius: 5px;
+  background-color: var(--accent-color-orange);
+  color: #fff;
+  font-size: 12px;
+}
+.movies_info{
+  display: flex;
+}

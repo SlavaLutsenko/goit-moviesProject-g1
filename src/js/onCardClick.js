@@ -1,4 +1,7 @@
 import createMarkupSingleMovie from './markupSingleMovie';
+import api from './api-service';
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
 // Клик по карточке фильма
 
 // достать фильмы "В очереди" из LocalStorage
@@ -63,24 +66,23 @@ export default async function onCardClick(e, data) {
       btnQueue.innerHTML = 'ADD TO QUEUE';
     }
   }
+
   function openTpailerFunc(ev) {
-    api.fetchTreiler(data.id).then(res => {
+    const arrTrail = api.fetchTreiler(data.id).then(res => {
       const resultsV = res.videos.results;
       const oneArr = resultsV.find(el => el.site === 'YouTube');
       const keyV = oneArr.key;
-      const markupV = `<div class="frame-cont"><iframe class="iframe-tr" cellspacing="0" src="https://www.youtube.com/embed/${keyV}" 
-        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
-        encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
-      refs.backdrop.innerHTML = markupV;
-      return;
+      basicLightbox
+        .create(
+          `<div class="frame-cont"><iframe class="iframe-tr" cellspacing="0" src="https://www.youtube.com/embed/${keyV}"
+               title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+               encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`,
+        )
+        .show();
     });
   }
 
-  //   console.log(btnWatched);
   btnWatched.addEventListener('click', handleWatchLibrary);
-
   btnQueue.addEventListener('click', handleQueueLibrary);
   btnTreiler.addEventListener('click', openTpailerFunc);
-  // handleWatchLibrary();
-  // handleQueueLibrary();
 }
