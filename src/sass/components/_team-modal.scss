@@ -26,9 +26,9 @@
     font-size: 12px;
     line-height: calc(16 / 12);
     overflow: scroll;
-    // background-image: radial-gradient(at center, var(--accent-color-orange) 10%, #f3f9a7 50%);
-    background: #ffff66
-      repeating-conic-gradient(hsla(0, 0%, 100%, 0.2) 0 15deg, hsla(0, 0%, 100%, 0) 0 30deg);
+    background-image: radial-gradient(at center, #f3f9a7 40%, var(--accent-color-orange) 95%);
+    // background: #ffff66
+    //   repeating-conic-gradient(hsla(0, 0%, 100%, 0.2) 0 15deg, hsla(0, 0%, 100%, 0) 0 30deg);
 
     @media screen and (min-width: 414px) {
       width: 320px;
@@ -68,6 +68,12 @@
   overflow: hidden;
   border-radius: 15px;
   object-fit: cover;
+  transition-property: background-color, color, box-shadow, transform;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover {
+    transform: scale(1.2);
+  }
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   @media screen and (min-width: 768px) {
@@ -86,7 +92,7 @@
   background-color: var(--accent-color-orange);
   border-radius: 10px;
   padding: 5px 0;
-  margin-top: 5px;
+  margin-top: 15px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
 }
@@ -117,6 +123,6 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   &:focus {
-    stroke: var(--accent-color-orange);
+    stroke: var(--white-color);
   }
 }
