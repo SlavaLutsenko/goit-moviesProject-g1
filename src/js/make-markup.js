@@ -30,7 +30,7 @@ export default async function makeMoviesMarkup(movies) {
       ${imgL.outerHTML}
       <p class="movies_name">
         ${title}
-        <span class="genre"><span class="dirgenre">Drama</span> | ${releaseYear}</span>
+        <span class="genre"><span class="dirgenre"></span> | ${releaseYear}</span>
       </p></div>`,
       )
       .join('');

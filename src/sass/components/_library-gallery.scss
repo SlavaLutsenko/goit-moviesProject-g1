@@ -7,7 +7,20 @@
 .genre{
   display: block;
   text-transform: none;
+  margin-top: 5px;
 }
 .movies_name{
   text-transform: uppercase;
+  display: block;
+}
+.rating{
+  // display: inline-block;
+  margin-left: 10px;
+  padding: 3px 10px;
+  border-radius: 5px;
+  background-color: var(--accent-color-orange);
+  color: #fff;
+}
+.movies_info{
+  display: flex;
 }
