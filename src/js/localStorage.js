@@ -90,8 +90,8 @@ function onCardClick(e) {
   const CARD_ID = Number(movie.dataset.id);
 
   if (btnLibraryQueue.dataset.check !== 'ok') {
-    const getMoviesFromQueue = () => JSON.parse(localStorage.getItem('WATCHED')) || [];
-    const watchedArr = getMoviesFromQueue();
+    const getMoviesFromWatched = () => JSON.parse(localStorage.getItem('WATCHED')) || [];
+    const watchedArr = getMoviesFromWatched();
     const singleMov = watchedArr.filter(el => {
       return el.id === CARD_ID;
     });
