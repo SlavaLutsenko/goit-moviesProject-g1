@@ -42,21 +42,19 @@
   &__rights-border {
     display: block;
     padding: 0 5px;
-  }
 
+    // margin-left: 5px;
+    // border-right: 2px solid var(--secondary-text-color);
+    // border-left: 2px solid var(--secondary-text-color);
+  }
   &__button {
     text-decoration: underline;
     background-color: transparent;
     border: none;
-    cursor: pointer;
   }
 }
 .icon-heart {
   width: 14px;
   height: 12px;
   fill: #ff6b08;
-  animation: cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  animation-duration: 2000ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
