@@ -6,6 +6,7 @@ const pagRight = document.querySelector('.pagination-row-right');
 class ApiService {
   BASE_URL = 'https://api.themoviedb.org/3';
   API_KEY = '87f9885ae1efa5e26738121aab64796c';
+  genres = [];
   constructor() {
     this.inputText = '';
     this.page = 1;
@@ -44,12 +45,17 @@ class ApiService {
   }
   /* Kate start */
   getGenres() {
-    return fetch(`${this.BASE_URL}/genre/movie/list?api_key=${this.API_KEY}`).then(data => {
-      if (data.ok) {
-        return data.json();
-      }
-      return Promise.reject(new Error('Error'));
-    });
+    return fetch(`${this.BASE_URL}/genre/movie/list?api_key=${this.API_KEY}`)
+      .then(data => {
+        if (data.ok) {
+          return data.json();
+        }
+        return Promise.reject(new Error('Error'));
+      })
+      .then(data => {
+        this.genres = data.genres;
+        return data;
+      });
   }
   fetchTreiler(id) {
     let urlTrailer = `${this.BASE_URL}/movie/${id}?api_key=${this.API_KEY}&append_to_response=videos`;
@@ -75,6 +81,10 @@ class ApiService {
   //     })
   //     .then(data => data.results);
   // }
+
+  get genresVal() {
+    return this.genres;
+  }
 
   get inputValue() {
     return this.inputText;

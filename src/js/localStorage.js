@@ -1,13 +1,14 @@
 import renderLibraryMarkup from './render-library-markup';
 import createMarkupSingleMovie from './markupSingleMovie';
 import Notiflix from 'notiflix';
+import onCardClick from './onCardClick';
 
 const btnLibraryWatched = document.querySelector('.btn-library-watched');
 const btnLibraryQueue = document.querySelector('.btn-library-queue');
-const libraryGall = document.querySelector('.library-gallery');
+const libraryGall = document.querySelector('.movies-gallery');
 
 const refs = {
-  gallery: document.querySelector('.library-gallery'),
+  gallery: document.querySelector('.movies-gallery'),
   modalwrap: document.querySelector('.output-js'),
   closeModalBtn: document.querySelector('[data-modal-close]'),
   modal: document.querySelector('[data-modal]'),
@@ -80,33 +81,28 @@ function toogleBtnsLibrary(a, b) {
 }
 
 // Логика модального окна Library
-libraryGall.addEventListener('click', onCardClick);
-function onCardClick(e) {
+libraryGall.addEventListener('click', e => {
   if (e.target.tagName !== 'IMG') {
     return;
   }
-  toggleModal();
+  let singleMov = null;
   const movie = e.target;
   const CARD_ID = Number(movie.dataset.id);
-
   if (btnLibraryQueue.dataset.check !== 'ok') {
     const getMoviesFromWatched = () => JSON.parse(localStorage.getItem('WATCHED')) || [];
     const watchedArr = getMoviesFromWatched();
-    const singleMov = watchedArr.filter(el => {
+    singleMov = watchedArr.find(el => {
       return el.id === CARD_ID;
     });
-    const res = createMarkupSingleMovie(...singleMov);
-    refs.modalwrap.innerHTML = res;
   } else {
     const getMoviesFromQueue = () => JSON.parse(localStorage.getItem('QUEUE')) || [];
-    const watchedArr = getMoviesFromQueue();
-    const singleMov = watchedArr.filter(el => {
+    const queueArr = getMoviesFromQueue();
+    singleMov = queueArr.find(el => {
       return el.id === CARD_ID;
     });
-    const res = createMarkupSingleMovie(...singleMov);
-    refs.modalwrap.innerHTML = res;
   }
-}
+  onCardClick(e, singleMov);
+});
 
 //     // Слушатели событий для кнопок в модалке
 //     const btnQueue = document.querySelector('[data-action="queue"]');
