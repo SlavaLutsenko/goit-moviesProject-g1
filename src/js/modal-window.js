@@ -45,6 +45,7 @@ function onCardClick(e) {
       const isIncluded = watched.find(el => el.id === data.id);
       if (!isIncluded) {
         localStorage.setItem('WATCHED', JSON.stringify([...watched, data]));
+        btnWatched.innerHTML = 'REMOVE FROM WATCHED';
       }
     }
 
@@ -53,6 +54,7 @@ function onCardClick(e) {
       const isIncluded = queue.find(el => el.id === data.id);
       if (!isIncluded) {
         localStorage.setItem('QUEUE', JSON.stringify([...queue, data]));
+        btnQueue.innerHTML = 'REMOVE FROM QUEUE';
       }
     }
 
