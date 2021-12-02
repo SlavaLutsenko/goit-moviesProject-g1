@@ -53,6 +53,15 @@
   }
   &__icon-close {
     stroke: #000;
+    transition-property: transform;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      stroke: var(--accent-color-orange);
+      transform: scale3d(1.1, 1.1, 1.1);
+    }
   }
   &__img {
     width: 240px;
@@ -112,6 +121,10 @@
     border-color: var(--accent-color-orange);
     border-style: solid;
     color: var(--white-color);
+    cursor: pointer;
+    transition-property: box-shadow, background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     &:hover,
     &:focus {
       background-color: #f4863d;
@@ -164,6 +177,10 @@
     box-sizing: content-box;
     border-radius: 5px;
     border: 1px solid #000;
+    cursor: pointer;
+    transition-property: box-shadow, background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     &:hover,
     &:focus {
       background-color: rgb(232, 228, 228);
@@ -181,6 +198,10 @@
   background-color: var(--accent-color-orange);
   border-color: var(--accent-color-orange);
   color: var(--white-color);
+  cursor: pointer;
+  transition-property: box-shadow, background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   &:focus {
     background-color: #f4863d;
