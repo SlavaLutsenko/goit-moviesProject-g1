@@ -4,9 +4,11 @@
   gap: 30px;
   margin-bottom: 50px;
 }
-.genre {
+.genres {
   display: block;
   text-transform: none;
+  font-size: 12px;
+  color: var(--accent-color-orange);
   margin-top: 5px;
 }
 .movies_name {
@@ -14,14 +16,14 @@
   display: block;
 }
 .rating {
-  width: 36px;
-  padding: 2px;
-  text-align: center;
-  margin: 5px 0 0 10px;
   border-radius: 5px;
   background-color: var(--accent-color-orange);
   color: #fff;
   font-size: 12px;
+  width: 36px;
+ padding-top: 3px;
+  text-align: center;
+  margin: 0 0 0 10px;
 }
 .movies_info {
   display: flex;
