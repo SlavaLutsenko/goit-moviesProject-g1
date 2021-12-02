@@ -44,4 +44,4 @@ const e=document.querySelector('.theme-switch input[type="checkbox"]'),t=localSt
 },{"notiflix":"hWOm"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/api-service"),require("./js/modal-window"),require("./js/render-movies"),require("./js/make-markup"),require("./js/pagination"),require("./js/markupSingleMovie"),require("./js/spinner"),require("./js/back-to-top"),require("./js/footer"),require("./js/dark"),require("./js/testFeature");
 },{"./sass/main.scss":"clu1","./js/api-service":"hC31","./js/modal-window":"WcsN","./js/render-movies":"Brfe","./js/make-markup":"dZIy","./js/pagination":"o8lo","./js/markupSingleMovie":"e0I3","./js/spinner":"Sc1o","./js/back-to-top":"EZ65","./js/footer":"b5Ik","./js/dark":"D9kA","./js/testFeature":"jGmu"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-moviesProject-g1/src.ee699efe.js.map
+//# sourceMappingURL=/goit-moviesProject-g1/src.52eb2dc8.js.map
