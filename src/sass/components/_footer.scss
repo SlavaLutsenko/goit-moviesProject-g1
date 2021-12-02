@@ -54,3 +54,21 @@
   height: 12px;
   fill: #ff6b08;
 }
+.animation-heart {
+  animation: anime;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.4, 1);
+  &:hover,
+  &:focus {
+    animation-play-state: paused;
+  }
+}
+@keyframes anime {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
