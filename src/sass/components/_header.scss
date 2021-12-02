@@ -108,6 +108,7 @@
     border-style: solid;
     border-radius: 8px;
     border-width: 1px;
+    cursor: pointer;
   }
 }
 .header-nav {
@@ -177,14 +178,6 @@
       bottom: 25px;
     }
   }
-  &__error {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 14px;
-    line-height: 1.14;
-    color: var(--accent-color-red);
-  }
 }
 
 ::placeholder {
@@ -235,6 +228,7 @@
     text-transform: uppercase;
     border-radius: 5px;
     border-style: solid;
+    cursor: pointer;
     @media screen and (min-width: 768px) {
       width: 136px;
     }
@@ -242,6 +236,7 @@
       background-color: transparent;
       border-color: var(--white-color);
       transition: background-color, box-shadow;
+      cursor: pointer;
       &:active,
       &:focus,
       &:hover {
@@ -253,6 +248,7 @@
       }
     }
     &--active {
+      cursor: pointer;
       background-color: var(--accent-color-orange);
       border-color: var(--accent-color-orange);
       box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
