@@ -8,35 +8,31 @@ const pagList = document.querySelector('.pagination-list');
 const pagLeft = document.querySelector('.pagination-row-left');
 const pagRight = document.querySelector('.pagination-row-right');
 
-pagList.addEventListener('click', paginFunc);
-function paginFunc(ev) {
-  const pagValue = +ev.target.dataset.pagnumber;
-  if (!pagValue) return;
-  api.changePage(pagValue);
+function apiRenderGenres() {
   api.fetchMovies().then(results => {
     makeMoviesMarkup(results).then(() => {
       renderMarkupWithGenres(results);
     });
   });
+}
+
+pagList.addEventListener('click', paginFunc);
+function paginFunc(ev) {
+  const pagValue = +ev.target.dataset.pagnumber;
+  if (!pagValue) return;
+  api.changePage(pagValue);
+  apiRenderGenres();
 }
 pagLeft.addEventListener('click', onLeftClick);
 pagRight.addEventListener('click', onRightClick);
 
 function onLeftClick(ev) {
   api.changePage(api.page - 1);
-  api.fetchMovies().then(results => {
-    makeMoviesMarkup(results).then(() => {
-      renderMarkupWithGenres(results);
-    });
-  });
+  apiRenderGenres();
 }
 function onRightClick(ev) {
   api.changePage(api.page + 1);
-  api.fetchMovies().then(results => {
-    makeMoviesMarkup(results).then(() => {
-      renderMarkupWithGenres(results);
-    });
-  });
+  apiRenderGenres();
 }
 window.addEventListener('resize', ev => {
   renderNumberPag(api.page, api.totalPages);

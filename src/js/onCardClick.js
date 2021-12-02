@@ -68,7 +68,7 @@ export default async function onCardClick(e, data) {
   }
 
   function openTpailerFunc(ev) {
-    const arrTrail = api.fetchTreiler(data.id).then(res => {
+    const arrTrail = api.getMovieData(data.id).then(res => {
       const resultsV = res.videos.results;
       const oneArr = resultsV.find(el => el.site === 'YouTube');
       const keyV = oneArr.key;
