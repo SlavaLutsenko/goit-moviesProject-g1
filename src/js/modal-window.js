@@ -20,7 +20,6 @@ function toggleModal() {
 const handleEscPress = function (e) {
   if (e.code === 'Escape') {
     refs.modal.classList.add('is-hidden');
-    // window.removeEventListener('keydown', handleEscPress); //!удаление слушателя
     refs.body.classList.toggle('no-scroll');
   }
 };

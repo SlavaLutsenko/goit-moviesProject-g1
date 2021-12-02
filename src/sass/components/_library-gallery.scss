@@ -21,12 +21,14 @@
   color: #fff;
   font-size: 12px;
   width: 36px;
- padding-top: 3px;
+  padding-top: 3px;
   text-align: center;
   margin: 0 0 0 10px;
 }
 .movies_info {
   display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
 }
 
 .hide {
