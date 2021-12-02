@@ -1,6 +1,4 @@
-import createMarkupSingleMovie from './markupSingleMovie';
 import api from './api-service';
-import makeMoviesMarkup from './make-markup';
 import onCardClick from './onCardClick';
 
 const refs = {
