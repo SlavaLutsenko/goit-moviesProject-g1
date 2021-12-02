@@ -4,9 +4,11 @@
   gap: 30px;
   margin-bottom: 50px;
 }
-.genre {
+.genres {
   display: block;
   text-transform: none;
+  font-style: 12px;
+  color: var(--accent-color-orange);
   margin-top: 5px;
 }
 .movies_name {

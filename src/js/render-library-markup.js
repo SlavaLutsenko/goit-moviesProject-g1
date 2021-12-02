@@ -18,7 +18,7 @@ export default function renderLibraryMarkup(movArr) {
       <p class="movies_name">
         ${title}
         <div class="movies_info">
-          <span class="genre">${movie_genres} | ${releaseYear}</span>
+          <span class="genres">${movie_genres} | ${releaseYear}</span>
           <span class="rating">${vote_average}</span>
         </div>
       </p></div>`;
