@@ -36,7 +36,7 @@ window.addEventListener("load",e=>{let o=document.querySelector(".loading");setT
 },{}],"EZ65":[function(require,module,exports) {
 var t=document.querySelector(".stt"),n=window.innerHeight,e=function(){document.addEventListener("scroll",function(e){n<=window.scrollY?t.classList.add("stt__active"):e.target.scrollingElement.scrollTop<=n&&(t.classList.remove("stt__active"),t.style.pointerEvents="auto")})},o=function(){t.addEventListener("click",function(){var n=window.scrollY,e=0,o=n;t.style.pointerEvents="none";requestAnimationFrame(function t(){o-=5*(e+=1),window.scrollTo(0,o),o>0&&requestAnimationFrame(t)})})},i=function(){e(),o()};document.addEventListener("DOMContentLoaded",i);
 },{}],"b5Ik":[function(require,module,exports) {
-document.getElementById("year").innerHTML=(new Date).getFullYear();
+document.getElementById("year").innerHTML=(new Date).getFullYear();const e=document.querySelector(".footer__button"),t=document.querySelector("[data-modal-team]"),o=document.querySelector("[data-modal-team-close]"),c=document.querySelector("body"),n=document.querySelector(".footer");function l(){t.classList.toggle("is-hidden"),c.classList.toggle("no-scroll")}e.addEventListener("click",l),o.addEventListener("click",l);
 },{}],"D9kA":[function(require,module,exports) {
 const e=document.querySelector('.theme-switch input[type="checkbox"]'),t=localStorage.getItem("theme");function c(e){e.target.checked?(document.documentElement.setAttribute("data-theme","dark"),localStorage.setItem("theme","dark")):(document.documentElement.setAttribute("data-theme","light"),localStorage.setItem("theme","light"))}t&&(document.documentElement.setAttribute("data-theme",t),"dark"===t&&(e.checked=!0)),e.addEventListener("change",c,!1);
 },{}],"jGmu":[function(require,module,exports) {
@@ -44,4 +44,4 @@ var e=e||webkitSpeechRecognition,o=o||webkitSpeechGrammarList,n=n||webkitSpeechR
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/api-service"),require("./js/modal-window"),require("./js/render-movies"),require("./js/make-markup"),require("./js/pagination"),require("./js/markupSingleMovie"),require("./js/spinner"),require("./js/back-to-top"),require("./js/footer"),require("./js/dark"),require("./js/testFeature");
 },{"./sass/main.scss":"clu1","./js/api-service":"hC31","./js/modal-window":"WcsN","./js/render-movies":"Brfe","./js/make-markup":"dZIy","./js/pagination":"o8lo","./js/markupSingleMovie":"e0I3","./js/spinner":"Sc1o","./js/back-to-top":"EZ65","./js/footer":"b5Ik","./js/dark":"D9kA","./js/testFeature":"jGmu"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-moviesProject-g1/src.3db14581.js.map
+//# sourceMappingURL=/goit-moviesProject-g1/src.33149342.js.map
