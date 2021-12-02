@@ -6,6 +6,8 @@ const closeModalBtnRef = document.querySelector('[data-modal-team-close]');
 const bodyRef = document.querySelector('body');
 const footerRef = document.querySelector('.footer');
 
+console.log(footerBntRef, modalRef, closeModalBtnRef, bodyRef, footerRef);
+
 function toggleModalTeam() {
   modalRef.classList.toggle('is-hidden');
   bodyRef.classList.toggle('no-scroll');
