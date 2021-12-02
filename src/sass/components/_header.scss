@@ -157,6 +157,16 @@
     @media screen and (min-width: 768px) {
       width: 340px;
     }
+    &:hover,
+    &:active,
+    &:focus {
+      border-bottom: 0.5px solid var(--accent-color-orange);
+    }
+    &:hover ::placeholder,
+    &:active ::placeholder,
+    &:focus ::placeholder {
+      color: var(--accent-color-orange);
+    }
   }
   &__search {
     position: absolute;
@@ -231,6 +241,16 @@
     &--inactive {
       background-color: transparent;
       border-color: var(--white-color);
+      transition: background-color, box-shadow;
+      &:active,
+      &:focus,
+      &:hover {
+        border: 1px solid #ff6b01;
+        box-shadow: 0 8px 43px var(--accent-color-orange);
+        transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+          box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+      }
     }
     &--active {
       background-color: var(--accent-color-orange);
