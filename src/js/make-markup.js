@@ -30,8 +30,10 @@ export default async function makeMoviesMarkup(movies) {
       ${imgL.outerHTML}
       <p class="movies_name">
         ${title}
-        <span class="genre"><span class="dirgenre"></span> | ${releaseYear}</span>
-        <span class="rait">${vote_average}</span>
+        <div class="movies_info">
+          <span class="genre"><span class="dirgenre"></span> | ${releaseYear}</span>
+          <span class="rait">${vote_average}</span>
+        </div>
       </p></div>`,
       )
       .join('');
