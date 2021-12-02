@@ -13,11 +13,12 @@ export default function renderMarkupWithGenres(results) {
         return normalizedGenres.filter(genre => genre.id === element).map(el => el.name);
       });
     });
+    console.log(newa);
     for (let i = 0; i < dirgenre.length; i += 1) {
       if (newa[i] === undefined) {
         dirgenre[i].textContent = 'No genres';
       } else {
-        dirgenre[i].textContent = newa[i].join(', ');
+        dirgenre[i].textContent = newa[i].slice(0, 2).join(', ');
       }
     }
   });
