@@ -5,16 +5,23 @@ import Notiflix from 'notiflix';
 var debounce = require('lodash.debounce');
 
 const searchInput = document.querySelector('#header-contain-input');
+const rowsPagLeft = document.querySelector('.pagination-row-left');
+const rowsPagRight = document.querySelector('.pagination-row-right');
 // How to handle input event in header Section
 const handleSearch = ev => {
   console.log(ev.target.value);
   api.inputText = ev.target.value;
   api.fetchMovies().then(results => {
     if (results.length === 0) {
+      rowsPagLeft.style.display = 'none';
+      rowsPagRight.style.display = 'none';
       Notiflix.Notify.failure('Search result not successful. Enter the correct movie name');
+      return;
     }
     makeMoviesMarkup(results).then(() => {
       renderMarkupWithGenres(results);
+      rowsPagLeft.style.display = 'block';
+      rowsPagRight.style.display = 'block';
     });
   });
   if (ev.target.value === '') {
