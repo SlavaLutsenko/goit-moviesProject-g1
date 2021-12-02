@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
@@ -73,7 +74,9 @@ var colorHTML = '';
 // });
 // hints.innerHTML =
 //   'Tap/click then say a color to change the background color of the app. Try ' + colorHTML + '.';
+
 const theme = document.querySelector('.headertheme-cont__btn');
+
 theme.onclick = function () {
   recognition.start();
   console.log('Ready to receive a color command.');
@@ -90,11 +93,15 @@ recognition.onresult = function (event) {
   // We then return the transcript property of the SpeechRecognitionAlternative object
 
   var color = event.results[0][0].transcript;
-  console.log(color);
+  if (colors.includes(color)) {
+    bg.style.backgroundColor = color;
+    Notiflix.Notify.success(`Your theme changed to ${color}`);
+  } else {
+    Notiflix.Notify.warning("I didn't recognise that color.");
+  }
   //   diagnostic.textContent = 'Result received: ' + color + '.';
-  console.log(bg.style.backgroundColor);
-  bg.style.backgroundColor = color;
-  console.log('Confidence: ' + event.results[0][0].confidence);
+
+  // console.log('Confidence: ' + event.results[0][0].confidence);
 };
 
 recognition.onspeechend = function () {
@@ -102,9 +109,9 @@ recognition.onspeechend = function () {
 };
 
 // recognition.onnomatch = function (event) {
-//   diagnostic.textContent = "I didn't recognise that color.";
+//   Notiflix.Notify.warning("I didn't recognise that color.");
 // };
 
 // recognition.onerror = function (event) {
-//   diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
+//   Notiflix.Notify.failure('Ooopppsss, something went wrong');
 // };

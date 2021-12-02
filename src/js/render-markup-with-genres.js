@@ -13,7 +13,6 @@ export default function renderMarkupWithGenres(results) {
         return normalizedGenres.filter(genre => genre.id === element).map(el => el.name);
       });
     });
-    console.log(newa);
     for (let i = 0; i < dirgenre.length; i += 1) {
       if (newa[i] === undefined) {
         dirgenre[i].textContent = 'No genres';
