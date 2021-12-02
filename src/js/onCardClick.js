@@ -74,9 +74,7 @@ export default async function onCardClick(e, data) {
       const keyV = oneArr.key;
       basicLightbox
         .create(
-          `<div class="frame-cont"><iframe class="iframe-tr" cellspacing="0" src="https://www.youtube.com/embed/${keyV}"
-               title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
-               encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`,
+          `<div class="frame-cont"><iframe class="iframe-tr" cellspacing="0" src="https://www.youtube.com/embed/${keyV}" title="YouTube video player" frameborder="0"></iframe></div>`,
         )
         .show();
     });

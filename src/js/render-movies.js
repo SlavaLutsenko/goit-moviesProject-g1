@@ -3,7 +3,6 @@ import makeMoviesMarkup from './make-markup';
 import renderMarkupWithGenres from './render-markup-with-genres';
 import Notiflix from 'notiflix';
 var debounce = require('lodash.debounce');
-console.log(debounce);
 
 const searchInput = document.querySelector('#header-contain-input');
 // How to handle input event in header Section
