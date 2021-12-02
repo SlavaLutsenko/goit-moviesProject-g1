@@ -36,7 +36,9 @@ class ApiService {
       });
   }
   getMovieData(id) {
-    return fetch(`${this.BASE_URL}/movie/${id}?api_key=${this.API_KEY}`).then(data => {
+    return fetch(
+      `${this.BASE_URL}/movie/${id}?api_key=${this.API_KEY}&append_to_response=videos`,
+    ).then(data => {
       if (data.ok) {
         return data.json();
       }
@@ -57,15 +59,15 @@ class ApiService {
         return data;
       });
   }
-  fetchTreiler(id) {
-    let urlTrailer = `${this.BASE_URL}/movie/${id}?api_key=${this.API_KEY}&append_to_response=videos`;
-    return fetch(urlTrailer).then(data => {
-      if (data.ok) {
-        return data.json();
-      }
-      return Promise.reject(new Error('Error'));
-    });
-  }
+  // fetchTreiler(id) {
+  //   let urlTrailer = `${this.BASE_URL}/movie/${id}?api_key=${this.API_KEY}&append_to_response=videos`;
+  //   return fetch(urlTrailer).then(data => {
+  //     if (data.ok) {
+  //       return data.json();
+  //     }
+  //     return Promise.reject(new Error('Error'));
+  //   });
+  // }
   /* Kate end */
 
   // Search & fetch Movies with header input

@@ -19,6 +19,7 @@
   border-color: transparent;
   font-size: 12px;
   line-height: 16px;
+  cursor: pointer;
   &__active {
     width: 40px;
     height: 40px;
@@ -34,6 +35,7 @@
   background-color: #f7f7f7;
   border-style: solid;
   border-color: #f7f7f7;
+  cursor: pointer;
 }
 
 .array-left {
