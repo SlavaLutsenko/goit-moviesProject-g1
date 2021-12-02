@@ -1,0 +1,71 @@
+:root {
+  --bg-color: rgb(238, 238, 238);
+  --p-color: #000;
+}
+[data-theme='dark'] {
+  --bg-color: #000;
+  --p-color: #fff;
+}
+body {
+  background-color: var(--bg-color);
+}
+p {
+  color: var(--p-color);
+}
+
+.theme-switch-wr {
+  align-items: center;
+}
+.theme-switch {
+  display: inline-block;
+  // height: 100px;
+  position: relative;
+  width: 50px;
+  top: -16px;
+}
+.theme-switch input {
+  display: none;
+}
+.slider {
+  background-color: #fff;
+  bottom: 0;
+  cursor: pointer;
+  height: 18px;
+  width: 45px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 20px;
+  transition: 0.9s;
+  &:before {
+    content: '';
+    position: absolute;
+    background-color: var(--accent-color-orange);
+    bottom: 2px;
+    left: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    transition: 0.5s;
+  }
+}
+input:checked + .slider {
+  background-color: var(--accent-color-orange);
+}
+input:checked + .slider:before {
+  transform: translateX(27px);
+  background-color: #000;
+}
+.slider.round {
+  border-radius: 80px;
+  &::before {
+    border-radius: 50%;
+  }
+}
+.movies_name {
+  color: var(--p-color);
+}
+.pagination-btn {
+  color: var(--p-color);
+}

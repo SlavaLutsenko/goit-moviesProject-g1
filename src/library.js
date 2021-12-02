@@ -7,3 +7,4 @@ import './js/spinner';
 // import './js/render-movies';
 // import './js/make-markup';
 import './js/footer';
+import './js/dark';
