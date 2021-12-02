@@ -28,7 +28,6 @@
     @media screen and (min-width: 768px) {
       &:not(:last-child) {
         margin-bottom: 0;
-        // margin-right: 5px;
       }
     }
   }
@@ -42,15 +41,12 @@
   &__rights-border {
     display: block;
     padding: 0 5px;
-
-    // margin-left: 5px;
-    // border-right: 2px solid var(--secondary-text-color);
-    // border-left: 2px solid var(--secondary-text-color);
   }
   &__button {
     text-decoration: underline;
     background-color: transparent;
     border: none;
+    cursor: pointer;
   }
 }
 .icon-heart {
