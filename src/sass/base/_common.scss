@@ -7,6 +7,10 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   color: var(--primary-text-color);

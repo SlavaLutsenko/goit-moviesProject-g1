@@ -59,30 +59,6 @@ class ApiService {
         return data;
       });
   }
-  // fetchTreiler(id) {
-  //   let urlTrailer = `${this.BASE_URL}/movie/${id}?api_key=${this.API_KEY}&append_to_response=videos`;
-  //   return fetch(urlTrailer).then(data => {
-  //     if (data.ok) {
-  //       return data.json();
-  //     }
-  //     return Promise.reject(new Error('Error'));
-  //   });
-  // }
-  /* Kate end */
-
-  // Search & fetch Movies with header input
-  // searchMovies() {
-  //   return fetch(
-  //     `${this.BASE_URL}/search/movie?api_key=${this.API_KEY}&language=en-US&page=${this.page}&include_adult=false&query=${this.inputText}`,
-  //   )
-  //     .then(data => {
-  //       if (data.ok) {
-  //         return data.json();
-  //       }
-  //       return Promise.reject(new Error('Error'));
-  //     })
-  //     .then(data => data.results);
-  // }
 
   get genresVal() {
     return this.genres;

@@ -1,38 +1,26 @@
 import api from './api-service';
-import makeMoviesMarkup from './make-markup';
-import renderMarkupWithGenres from './render-markup-with-genres';
-
-const gall = document.querySelector('.movies-gallery');
-const searchInput = document.querySelector('#header-contain-input');
+import getMovie from './getMovie';
 const pagList = document.querySelector('.pagination-list');
 const pagLeft = document.querySelector('.pagination-row-left');
 const pagRight = document.querySelector('.pagination-row-right');
-
-function apiRenderGenres() {
-  api.fetchMovies().then(results => {
-    makeMoviesMarkup(results).then(() => {
-      renderMarkupWithGenres(results);
-    });
-  });
-}
 
 pagList.addEventListener('click', paginFunc);
 function paginFunc(ev) {
   const pagValue = +ev.target.dataset.pagnumber;
   if (!pagValue) return;
   api.changePage(pagValue);
-  apiRenderGenres();
+  getMovie();
 }
 pagLeft.addEventListener('click', onLeftClick);
 pagRight.addEventListener('click', onRightClick);
 
 function onLeftClick(ev) {
   api.changePage(api.page - 1);
-  apiRenderGenres();
+  getMovie();
 }
 function onRightClick(ev) {
   api.changePage(api.page + 1);
-  apiRenderGenres();
+  getMovie();
 }
 window.addEventListener('resize', ev => {
   renderNumberPag(api.page, api.totalPages);
