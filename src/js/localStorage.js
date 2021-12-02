@@ -1,8 +1,7 @@
 import renderLibraryMarkup from './render-library-markup';
-import createMarkupSingleMovie from './markupSingleMovie';
 import Notiflix from 'notiflix';
 import onCardClick from './onCardClick';
-
+const imgBlank = document.querySelector('.blank-img');
 const btnLibraryWatched = document.querySelector('.btn-library-watched');
 const btnLibraryQueue = document.querySelector('.btn-library-queue');
 const libraryGall = document.querySelector('.movies-gallery');
@@ -54,6 +53,13 @@ btnLibraryQueue.addEventListener('click', ev => {
 function renderWatchedMovies() {
   const getMoviesFromWatched = () => JSON.parse(localStorage.getItem('WATCHED')) || [];
   const watchedArr = getMoviesFromWatched();
+
+  console.log(watchedArr);
+  if (watchedArr.length === 0) {
+    libraryGall.innerHTML = '';
+    imgBlank.classList.remove('blank-img');
+  } else imgBlank.classList.add('blank-img');
+
   if (watchedArr.length === 0) {
     return Notiflix.Notify.failure('No watched movies in your library.');
   } else {
@@ -66,6 +72,10 @@ function renderWatchedMovies() {
 function renderQueueMovies() {
   const getMoviesFromQueue = () => JSON.parse(localStorage.getItem('QUEUE')) || [];
   const queuedArr = getMoviesFromQueue();
+  if (queuedArr.length === 0) {
+    libraryGall.innerHTML = '';
+    imgBlank.classList.remove('blank-img');
+  } else imgBlank.classList.add('blank-img');
   if (queuedArr.length === 0) {
     return Notiflix.Notify.failure('Please select movies in order to add to your queue');
   } else {
@@ -101,9 +111,3 @@ libraryGall.addEventListener('click', e => {
   }
   onCardClick(e, singleMov);
 });
-
-//     // Слушатели событий для кнопок в модалке
-//     const btnQueue = document.querySelector('[data-action="queue"]');
-//     const btnWatched = document.querySelector('[data-action="watched"]');
-//     btnWatched.addEventListener('click', handleWatchLibrary);
-//     btnQueue.addEventListener('click', handleQueueLibrary);
