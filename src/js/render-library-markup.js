@@ -1,6 +1,8 @@
+import emptyImg from '../images/blank.jpg';
+
 export default function renderLibraryMarkup(movArr) {
   const libraryGall = document.querySelector('.movies-gallery');
-  const emptyImg = './images/blank.jpg';
+
   const normalizedMovies = movArr.map(
     ({ title, release_date, poster_path, id, vote_average, genres }) => {
       const movie_genres = genres
