@@ -32,7 +32,9 @@ var e,n=arguments[3];!function(t){"object"==typeof exports&&"undefined"!=typeof 
 window.addEventListener("load",e=>{let o=document.querySelector(".loading");setTimeout(()=>{o.classList.remove("loading")},700)});
 },{}],"b5Ik":[function(require,module,exports) {
 document.getElementById("year").innerHTML=(new Date).getFullYear();
+},{}],"D9kA":[function(require,module,exports) {
+const e=document.querySelector('.theme-switch input[type="checkbox"]'),t=localStorage.getItem("theme");function c(e){e.target.checked?(document.documentElement.setAttribute("data-theme","dark"),localStorage.setItem("theme","dark")):(document.documentElement.setAttribute("data-theme","light"),localStorage.setItem("theme","light"))}t&&(document.documentElement.setAttribute("data-theme",t),"dark"===t&&(e.checked=!0)),e.addEventListener("change",c,!1);
 },{}],"I9BA":[function(require,module,exports) {
-"use strict";require("./sass/main.scss"),require("./js/localStorage"),require("./js/render-library-markup"),require("./js/spinner"),require("./js/footer");
-},{"./sass/main.scss":"clu1","./js/localStorage":"nnQC","./js/render-library-markup":"vaOt","./js/spinner":"Sc1o","./js/footer":"b5Ik"}]},{},["I9BA"], null)
-//# sourceMappingURL=/goit-moviesProject-g1/library.af54a4ef.js.map
+"use strict";require("./sass/main.scss"),require("./js/localStorage"),require("./js/render-library-markup"),require("./js/spinner"),require("./js/footer"),require("./js/dark");
+},{"./sass/main.scss":"clu1","./js/localStorage":"nnQC","./js/render-library-markup":"vaOt","./js/spinner":"Sc1o","./js/footer":"b5Ik","./js/dark":"D9kA"}]},{},["I9BA"], null)
+//# sourceMappingURL=/goit-moviesProject-g1/library.26158cde.js.map
