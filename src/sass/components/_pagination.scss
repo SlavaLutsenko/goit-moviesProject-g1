@@ -19,7 +19,7 @@
   border-color: transparent;
   font-size: 12px;
   line-height: 16px;
-  & .pagination-btn__active {
+  &__active {
     width: 40px;
     height: 40px;
     background-color: var(--accent-color-orange);
