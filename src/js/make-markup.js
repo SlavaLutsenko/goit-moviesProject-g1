@@ -31,7 +31,7 @@ export default async function makeMoviesMarkup(movies) {
       <p class="movies_name">
         ${title}
         <span class="genre"><span class="dirgenre"></span> | ${releaseYear}</span>
-        </span class="raiting">${vote_average}</span>
+        <span class="rait">${vote_average}</span>
       </p></div>`,
       )
       .join('');

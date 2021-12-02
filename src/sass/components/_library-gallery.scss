@@ -7,7 +7,7 @@
 .genres {
   display: block;
   text-transform: none;
-  font-style: 12px;
+  font-size: 12px;
   color: var(--accent-color-orange);
   margin-top: 5px;
 }
@@ -16,14 +16,14 @@
   display: block;
 }
 .rating {
-  width: 36px;
-  padding: 2px;
-  text-align: center;
-  margin: 5px 0 0 10px;
   border-radius: 5px;
   background-color: var(--accent-color-orange);
   color: #fff;
   font-size: 12px;
+  width: 36px;
+ padding-top: 4px;
+  text-align: center;
+  margin: 0 0 0 10px;
 }
 .movies_info {
   display: flex;

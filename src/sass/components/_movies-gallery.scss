@@ -48,5 +48,14 @@
   color: #000000;
 }
 .genre {
+  width: 80%;
+  display:block;
   color: var(--accent-color-orange);
+}
+.rait{
+  padding: 0 10px;
+  border-radius: 5px;
+  background-color: var(--accent-color-orange);
+  color: #fff;
+  font-size: 12px;
 }
