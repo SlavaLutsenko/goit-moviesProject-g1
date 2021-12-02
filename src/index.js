@@ -8,3 +8,4 @@ import './js/markupSingleMovie';
 import './js/spinner';
 import './js/back-to-top';
 import './js/footer';
+import './js/dark';
