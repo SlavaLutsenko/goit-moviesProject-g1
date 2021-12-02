@@ -40,10 +40,8 @@ refs.gallery.addEventListener('click', async e => {
   const movie = e.target;
   const CARD_ID = Number(movie.dataset.id);
   const data = await api.getMovieData(CARD_ID).then(data => {
-    console.log(data);
     return data;
   });
-  console.log(data);
   onCardClick(e, data);
 });
 

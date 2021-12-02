@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "basiclightbox": "^5.0.4",
+    "lodash.debounce": "^4.0.8",
     "node-sass": "^6.0.1",
     "notiflix": "^3.2.2",
     "paginationjs": "^2.1.5"

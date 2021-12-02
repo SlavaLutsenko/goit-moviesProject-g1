@@ -14,7 +14,11 @@ export default function renderMarkupWithGenres(results) {
       });
     });
     for (let i = 0; i < dirgenre.length; i += 1) {
-      dirgenre[i].textContent = newa[i].join(', ');
+      if (newa[i] === undefined) {
+        dirgenre[i].textContent = 'No genres';
+      } else {
+        dirgenre[i].textContent = newa[i].join(', ');
+      }
     }
   });
 }
