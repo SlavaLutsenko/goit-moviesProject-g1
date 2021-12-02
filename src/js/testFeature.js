@@ -63,7 +63,7 @@ recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
 // var diagnostic = document.querySelector('.output');
-var bg = document.querySelector('html');
+var bg = document.querySelector('body');
 // var hints = document.querySelector('.hints');
 
 var colorHTML = '';
@@ -90,7 +90,9 @@ recognition.onresult = function (event) {
   // We then return the transcript property of the SpeechRecognitionAlternative object
 
   var color = event.results[0][0].transcript;
+  console.log(color);
   //   diagnostic.textContent = 'Result received: ' + color + '.';
+  console.log(bg.style.backgroundColor);
   bg.style.backgroundColor = color;
   console.log('Confidence: ' + event.results[0][0].confidence);
 };
