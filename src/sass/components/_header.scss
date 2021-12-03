@@ -255,3 +255,21 @@
     }
   }
 }
+.voice-btn {
+  // background-color: transparent;
+  // border-color: transparent;
+  position: absolute;
+  display: block;
+  transform: translate(-50%, -50%);
+  top: 150%;
+  left: 99%;
+  background-color: transparent;
+  border-color: transparent;
+  @media screen and (min-width: 768px) {
+    top: 80%;
+  }
+  &__svg {
+    stroke: var(--white-color);
+    fill: var(--white-color);
+  }
+}
