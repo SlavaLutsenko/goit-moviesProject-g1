@@ -1,4 +1,6 @@
 import Notiflix from 'notiflix';
+import api from './api-service';
+import getMovie from './getMovie';
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
 var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
@@ -66,7 +68,8 @@ recognition.maxAlternatives = 1;
 // var diagnostic = document.querySelector('.output');
 var bg = document.querySelector('body');
 // var hints = document.querySelector('.hints');
-
+const input = document.querySelector('#header-contain-input');
+console.log(input.value);
 var colorHTML = '';
 // colors.forEach(function (v, i, a) {
 //   console.log(v, i);
@@ -84,30 +87,24 @@ theme.onclick = function () {
 
 recognition.onresult = function (event) {
   const span = document.querySelectorAll('.genre');
-  // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
-  // The SpeechRecognitionResultList object contains SpeechRecognitionResult objects.
-  // It has a getter so it can be accessed like an array
-  // The first [0] returns the SpeechRecognitionResult at the last position.
-  // Each SpeechRecognitionResult object contains SpeechRecognitionAlternative objects that contain individual results.
-  // These also have getters so they can be accessed like arrays.
-  // The second [0] returns the SpeechRecognitionAlternative at position 0.
-  // We then return the transcript property of the SpeechRecognitionAlternative object
 
-  var color = event.results[0][0].transcript;
-  if (colors.includes(color)) {
-    span.forEach(el => {
-      el.style.color = 'white';
-    });
-    bg.style.backgroundColor = color;
+  // Search movies with input
+  input.value = event.results[0][0].transcript;
+  api.inputValue = event.results[0][0].transcript;
+  getMovie();
 
-    // span.classList.add('genre-white');
-    Notiflix.Notify.success(`Your theme changed to ${color}`);
-  } else {
-    Notiflix.Notify.warning("I didn't recognise that color.");
-  }
-  //   diagnostic.textContent = 'Result received: ' + color + '.';
+  // Change background color
+  // var color = event.results[0][0].transcript;
+  // if (colors.includes(color)) {
+  //   span.forEach(el => {
+  //     el.style.color = 'white';
+  //   });
+  //   bg.style.backgroundColor = color;
 
-  // console.log('Confidence: ' + event.results[0][0].confidence);
+  //   Notiflix.Notify.success(`Your theme changed to ${color}`);
+  // } else {
+  //   Notiflix.Notify.warning("I didn't recognise that color.");
+  // }
 };
 
 recognition.onspeechend = function () {
