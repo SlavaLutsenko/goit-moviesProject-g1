@@ -19,4 +19,4 @@ const handleSearch = ev => {
 searchInput.addEventListener('input', debounce(handleSearch, 500));
 
 // Render movies into movies-gallery on the main page
-getMovie();
+api.getGenres().then(getMovie);
