@@ -21,12 +21,15 @@ const handleEscPress = function (e) {
   if (e.code === 'Escape') {
     refs.modal.classList.add('is-hidden');
     refs.body.classList.toggle('no-scroll');
+    console.log('11231');
+    window.removeEventListener('keydown', handleEscPress);
   }
 };
 
 refs.closeModalBtn.addEventListener('click', function () {
   if (this.hasAttribute('data-modal-close')) {
     toggleModal();
+    window.removeEventListener('keydown', handleEscPress);
   }
 });
 
@@ -40,12 +43,13 @@ refs.gallery.addEventListener('click', async e => {
     return data;
   });
   onCardClick(e, data);
+  window.addEventListener('keydown', handleEscPress);
+  console.log('click');
 });
 
 refs.backdrop.addEventListener('click', e => {
   if (e.target.matches('.backdrop-container')) {
     toggleModal();
+    window.removeEventListener('keydown', handleEscPress);
   }
 });
-
-window.addEventListener('keydown', handleEscPress);
