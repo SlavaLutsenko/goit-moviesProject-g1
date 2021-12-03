@@ -94,17 +94,17 @@ recognition.onresult = function (event) {
   getMovie();
 
   // Change background color
-  // var color = event.results[0][0].transcript;
-  // if (colors.includes(color)) {
-  //   span.forEach(el => {
-  //     el.style.color = 'white';
-  //   });
-  //   bg.style.backgroundColor = color;
+  //   var color = event.results[0][0].transcript;
+  //   if (colors.includes(color)) {
+  //     span.forEach(el => {
+  //       el.style.color = 'white';
+  //     });
+  //     bg.style.backgroundColor = color;
 
-  //   Notiflix.Notify.success(`Your theme changed to ${color}`);
-  // } else {
-  //   Notiflix.Notify.warning("I didn't recognise that color.");
-  // }
+  //     Notiflix.Notify.success(`Your theme changed to ${color}`);
+  //   } else {
+  //     Notiflix.Notify.warning("I didn't recognise that color.");
+  //   }
 };
 
 recognition.onspeechend = function () {
@@ -117,4 +117,4 @@ recognition.onspeechend = function () {
 
 // recognition.onerror = function (event) {
 //   Notiflix.Notify.failure('Ooopppsss, something went wrong');
-// };
+// }

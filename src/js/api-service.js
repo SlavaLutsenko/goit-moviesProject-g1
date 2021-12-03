@@ -55,8 +55,11 @@ class ApiService {
         return Promise.reject(new Error('Error'));
       })
       .then(data => {
-        this.genres = data.genres;
-        return data;
+        const normGen = data.genres.reduce((acc, { id, name }) => {
+          return { ...acc, [id]: name };
+        }, {});
+        this.genres = normGen;
+        return normGen;
       });
   }
 
