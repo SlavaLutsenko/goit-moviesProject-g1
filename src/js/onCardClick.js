@@ -16,6 +16,7 @@ const refs = {
   modal: document.querySelector('[data-modal]'),
   body: document.querySelector('body'),
   backdrop: document.querySelector('.backdrop-container'),
+  imgBlank: document.querySelector('.blank-img'),
 };
 
 function toggleModal() {
@@ -45,6 +46,7 @@ export default async function onCardClick(e, data) {
 
   function handleWatchLibrary() {
     const watched = getMoviesFromWatched();
+
     const isIncluded = watched.find(el => el.id === data.id);
     if (!isIncluded) {
       localStorage.setItem('WATCHED', JSON.stringify([...watched, data]));
@@ -52,6 +54,8 @@ export default async function onCardClick(e, data) {
     } else {
       localStorage.setItem('WATCHED', JSON.stringify(watched.filter(el => el.id !== data.id)));
       btnWatched.innerHTML = 'ADD TO WATCHED';
+      // refs.gallery.innerHTML = '';
+      // refs.imgBlank.classList.remove('blank-img');
     }
   }
 
@@ -64,6 +68,8 @@ export default async function onCardClick(e, data) {
     } else {
       localStorage.setItem('QUEUE', JSON.stringify(queue.filter(el => el.id !== data.id)));
       btnQueue.innerHTML = 'ADD TO QUEUE';
+      // refs.gallery.innerHTML = '';
+      // refs.imgBlank.classList.remove('blank-img');
     }
   }
 
