@@ -54,7 +54,6 @@ function renderWatchedMovies() {
   const getMoviesFromWatched = () => JSON.parse(localStorage.getItem('WATCHED')) || [];
   const watchedArr = getMoviesFromWatched();
 
-  console.log(watchedArr);
   if (watchedArr.length === 0) {
     libraryGall.innerHTML = '';
     imgBlank.classList.remove('blank-img');

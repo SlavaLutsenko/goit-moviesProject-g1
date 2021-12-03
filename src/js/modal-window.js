@@ -21,7 +21,6 @@ const handleEscPress = function (e) {
   if (e.code === 'Escape') {
     refs.modal.classList.add('is-hidden');
     refs.body.classList.toggle('no-scroll');
-    console.log('11231');
     window.removeEventListener('keydown', handleEscPress);
   }
 };
@@ -44,7 +43,6 @@ refs.gallery.addEventListener('click', async e => {
   });
   onCardClick(e, data);
   window.addEventListener('keydown', handleEscPress);
-  console.log('click');
 });
 
 refs.backdrop.addEventListener('click', e => {
