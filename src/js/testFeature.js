@@ -69,7 +69,6 @@ recognition.maxAlternatives = 1;
 var bg = document.querySelector('body');
 // var hints = document.querySelector('.hints');
 const input = document.querySelector('#header-contain-input');
-console.log(input.value);
 var colorHTML = '';
 // colors.forEach(function (v, i, a) {
 //   console.log(v, i);
@@ -79,9 +78,9 @@ var colorHTML = '';
 //   'Tap/click then say a color to change the background color of the app. Try ' + colorHTML + '.';
 
 const theme = document.querySelector('.headertheme-cont__btn');
-const footer = document.querySelector('footer');
-footer.addEventListener('click', handleFootClick);
-theme.addEventListener('click', handleRecClick);
+const voiceBtn = document.querySelector('.voice-btn');
+theme.addEventListener('click', handleFootClick);
+voiceBtn.addEventListener('click', handleRecClick);
 
 function handleFootClick(ev) {
   recognition.start();
