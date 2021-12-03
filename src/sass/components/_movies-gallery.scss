@@ -53,6 +53,11 @@
   display: block;
   color: var(--accent-color-orange);
 }
+
+.genre--white {
+  color: #fff;
+}
+
 .rait {
   border-radius: 5px;
   background-color: var(--accent-color-orange);
@@ -65,7 +70,7 @@
 }
 .blank-img-style {
   margin: 0 auto;
-  width: 600px;
+  width: 100%;
   border-radius: 10px;
 }
 

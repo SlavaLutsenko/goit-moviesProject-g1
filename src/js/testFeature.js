@@ -83,6 +83,7 @@ theme.onclick = function () {
 };
 
 recognition.onresult = function (event) {
+  const span = document.querySelectorAll('.genre');
   // The SpeechRecognitionEvent results property returns a SpeechRecognitionResultList object
   // The SpeechRecognitionResultList object contains SpeechRecognitionResult objects.
   // It has a getter so it can be accessed like an array
@@ -94,7 +95,12 @@ recognition.onresult = function (event) {
 
   var color = event.results[0][0].transcript;
   if (colors.includes(color)) {
+    span.forEach(el => {
+      el.style.color = 'white';
+    });
     bg.style.backgroundColor = color;
+
+    // span.classList.add('genre-white');
     Notiflix.Notify.success(`Your theme changed to ${color}`);
   } else {
     Notiflix.Notify.warning("I didn't recognise that color.");
