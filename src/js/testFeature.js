@@ -79,33 +79,69 @@ var colorHTML = '';
 //   'Tap/click then say a color to change the background color of the app. Try ' + colorHTML + '.';
 
 const theme = document.querySelector('.headertheme-cont__btn');
+const footer = document.querySelector('footer');
+footer.addEventListener('click', handleFootClick);
+theme.addEventListener('click', handleRecClick);
 
-theme.onclick = function () {
+function handleFootClick(ev) {
   recognition.start();
-  console.log('Ready to receive a color command.');
-};
+  recognition.onresult = function (event) {
+    const span = document.querySelectorAll('.genre');
 
-recognition.onresult = function (event) {
-  const span = document.querySelectorAll('.genre');
+    // Search movies with input
+    var color = event.results[0][0].transcript;
+    if (colors.includes(color)) {
+      span.forEach(el => {
+        el.style.color = 'white';
+      });
+      bg.style.backgroundColor = color;
 
-  // Search movies with input
-  input.value = event.results[0][0].transcript;
-  api.inputValue = event.results[0][0].transcript;
-  getMovie();
+      Notiflix.Notify.success(`Your theme changed to ${color}`);
+    } else {
+      Notiflix.Notify.warning("I didn't recognise that color.");
+    }
+  };
+}
 
-  // Change background color
-  // var color = event.results[0][0].transcript;
-  // if (colors.includes(color)) {
-  //   span.forEach(el => {
-  //     el.style.color = 'white';
-  //   });
-  //   bg.style.backgroundColor = color;
+function handleRecClick(ev) {
+  recognition.start();
+  recognition.onresult = function (event) {
+    const span = document.querySelectorAll('.genre');
 
-  //   Notiflix.Notify.success(`Your theme changed to ${color}`);
-  // } else {
-  //   Notiflix.Notify.warning("I didn't recognise that color.");
-  // }
-};
+    // Search movies with input
+    input.value = event.results[0][0].transcript;
+    api.inputValue = event.results[0][0].transcript;
+    getMovie();
+  };
+}
+
+// theme.onclick = function () {
+//   recognition.start();
+//   console.log('Ready to receive a color command.');
+// };
+
+// recognition.onresult = function (event) {
+//   const span = document.querySelectorAll('.genre');
+
+//   // Search movies with input
+//   console.log(event.target);
+//   input.value = event.results[0][0].transcript;
+//   api.inputValue = event.results[0][0].transcript;
+//   getMovie();
+
+// Change background color
+// var color = event.results[0][0].transcript;
+// if (colors.includes(color)) {
+//   span.forEach(el => {
+//     el.style.color = 'white';
+//   });
+//   bg.style.backgroundColor = color;
+
+//   Notiflix.Notify.success(`Your theme changed to ${color}`);
+// } else {
+//   Notiflix.Notify.warning("I didn't recognise that color.");
+// }
+// };
 
 recognition.onspeechend = function () {
   recognition.stop();
