@@ -37,4 +37,4 @@ const e=document.querySelector('.theme-switch input[type="checkbox"]'),t=localSt
 },{}],"I9BA":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/localStorage"),require("./js/render-library-markup"),require("./js/spinner"),require("./js/footer"),require("./js/dark");
 },{"./sass/main.scss":"clu1","./js/localStorage":"nnQC","./js/render-library-markup":"vaOt","./js/spinner":"Sc1o","./js/footer":"b5Ik","./js/dark":"D9kA"}]},{},["I9BA"], null)
-//# sourceMappingURL=/goit-moviesProject-g1/library.034005f9.js.map
+//# sourceMappingURL=/goit-moviesProject-g1/library.af9be6b0.js.map
